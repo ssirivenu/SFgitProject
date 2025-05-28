@@ -1,0 +1,141 @@
+name: Salesforce CI/CD with sfdx-delta and Org Auth (using variables)
+
+on:
+  pull_request:
+    branches: [develop, test, release, master]
+  push:
+    branches: [develop, test, release, master]
+
+jobs:
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Salesforce CLI
+        run: npm install -g sfdx-cli
+      - name: Install sfdx-git-delta
+        run: npm install -g sfdx-git-delta
+      - name: Generate Delta (PR validation)
+        env:
+          DELTA_FROM: origin/${{ github.base_ref }}
+          DELTA_TO: HEAD
+        run: |
+          git fetch origin ${{ github.base_ref }}
+          sfdx sgd:source:delta --to "$DELTA_TO" --from "$DELTA_FROM" --output delta
+      - name: Run Lint & Unit Tests
+        run: |
+          # Add linting commands here
+          sfdx force:apex:test:run --resultformat human --wait 10
+
+  deploy-dev:
+    if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    env:
+      SFDX_CLIENT_ID: ${{ secrets.SF_DEV_CLIENT_ID }}
+      SFDX_JWT_KEY: ${{ secrets.SF_DEV_JWT_KEY }}
+      SFDX_USERNAME: ${{ secrets.SF_DEV_USERNAME }}
+      SFDX_ALIAS: ${{ github.ref_name }}
+      SFDX_INSTANCE_URL: https://test.salesforce.com
+      DELTA_FROM: origin/develop
+      DELTA_TO: HEAD
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Salesforce CLI
+        run: npm install -g sfdx-cli
+      - name: Install sfdx-git-delta
+        run: npm install -g sfdx-git-delta
+      - name: Authorize Dev Org
+        run: |
+          echo "$SFDX_JWT_KEY" > server.key
+          sfdx auth:jwt:grant --clientid $SFDX_CLIENT_ID --jwtkeyfile server.key --username $SFDX_USERNAME --setalias $SFDX_ALIAS --instanceurl $SFDX_INSTANCE_URL
+      - name: Generate Delta (Dev)
+        run: |
+          git fetch origin develop
+          sfdx sgd:source:delta --to "$DELTA_TO" --from "$DELTA_FROM" --output delta
+      - name: Deploy Delta to Dev
+        run: sfdx force:source:deploy -u $SFDX_ALIAS -p delta/force-app
+
+  deploy-sit:
+    if: github.ref == 'refs/heads/test' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    env:
+      SFDX_CLIENT_ID: ${{ secrets.SF_SIT_CLIENT_ID }}
+      SFDX_JWT_KEY: ${{ secrets.SF_SIT_JWT_KEY }}
+      SFDX_USERNAME: ${{ secrets.SF_SIT_USERNAME }}
+      SFDX_ALIAS: ${{ github.ref_name }}
+      SFDX_INSTANCE_URL: https://test.salesforce.com
+      DELTA_FROM: origin/test
+      DELTA_TO: HEAD
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Salesforce CLI
+        run: npm install -g sfdx-cli
+      - name: Install sfdx-git-delta
+        run: npm install -g sfdx-git-delta
+      - name: Authorize SIT Org
+        run: |
+          echo "$SFDX_JWT_KEY" > server.key
+          sfdx auth:jwt:grant --clientid $SFDX_CLIENT_ID --jwtkeyfile server.key --username $SFDX_USERNAME --setalias $SFDX_ALIAS --instanceurl $SFDX_INSTANCE_URL
+      - name: Generate Delta (SIT)
+        run: |
+          git fetch origin test
+          sfdx sgd:source:delta --to "$DELTA_TO" --from "$DELTA_FROM" --output delta
+      - name: Deploy Delta to SIT
+        run: sfdx force:source:deploy -u $SFDX_ALIAS -p delta/force-app
+
+  deploy-uat:
+    if: github.ref == 'refs/heads/release' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    env:
+      SFDX_CLIENT_ID: ${{ secrets.SF_UAT_CLIENT_ID }}
+      SFDX_JWT_KEY: ${{ secrets.SF_UAT_JWT_KEY }}
+      SFDX_USERNAME: ${{ secrets.SF_UAT_USERNAME }}
+      SFDX_ALIAS: ${{ github.ref_name }}
+      SFDX_INSTANCE_URL: https://test.salesforce.com
+      DELTA_FROM: origin/release
+      DELTA_TO: HEAD
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Salesforce CLI
+        run: npm install -g sfdx-cli
+      - name: Install sfdx-git-delta
+        run: npm install -g sfdx-git-delta
+      - name: Authorize UAT Org
+        run: |
+          echo "$SFDX_JWT_KEY" > server.key
+          sfdx auth:jwt:grant --clientid $SFDX_CLIENT_ID --jwtkeyfile server.key --username $SFDX_USERNAME --setalias $SFDX_ALIAS --instanceurl $SFDX_INSTANCE_URL
+      - name: Generate Delta (UAT)
+        run: |
+          git fetch origin release
+          sfdx sgd:source:delta --to "$DELTA_TO" --from "$DELTA_FROM" --output delta
+      - name: Deploy Delta to UAT
+        run: sfdx force:source:deploy -u $SFDX_ALIAS -p delta/force-app
+
+  deploy-prod:
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    env:
+      SFDX_CLIENT_ID: ${{ secrets.SF_PROD_CLIENT_ID }}
+      SFDX_JWT_KEY: ${{ secrets.SF_PROD_JWT_KEY }}
+      SFDX_USERNAME: ${{ secrets.SF_PROD_USERNAME }}
+      SFDX_ALIAS: ${{ github.ref_name }}
+      SFDX_INSTANCE_URL: https://login.salesforce.com
+      DELTA_FROM: origin/master
+      DELTA_TO: HEAD
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Salesforce CLI
+        run: npm install -g sfdx-cli
+      - name: Install sfdx-git-delta
+        run: npm install -g sfdx-git-delta
+      - name: Authorize Prod Org
+        run: |
+          echo "$SFDX_JWT_KEY" > server.key
+          sfdx auth:jwt:grant --clientid $SFDX_CLIENT_ID --jwtkeyfile server.key --username $SFDX_USERNAME --setalias $SFDX_ALIAS --instanceurl $SFDX_INSTANCE_URL
+      - name: Generate Delta (Production)
+        run: |
+          git fetch origin master
+          sfdx sgd:source:delta --to "$DELTA_TO" --from "$DELTA_FROM" --output delta
+      - name: Deploy Delta to Production
+        run: sfdx force:source:deploy -u $SFDX_ALIAS -p delta/force-app

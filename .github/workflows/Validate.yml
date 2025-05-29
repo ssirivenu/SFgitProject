@@ -13,6 +13,15 @@ jobs:
   validate-dev:
     runs-on: ubuntu-latest
     environment: Test
+    env:
+          SFDX_URL: ${{ secrets.SFDX_URL }}
+          API_VERSION: ${{ vars.API_VERSION }}
+          FROM_TAG: ${{ vars.FROM_TAG }}  
+          TO_TAG: ${{ vars.TO_TAG }}
+          SANDBOX_NAME: ${{ vars.SANDBOX_NAME }}
+          RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
+          UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
+          SPECIFIEDTESTS: ${{ vars.SPECIFIEDTESTS }}
     steps:
       - name: 'Checkout source code'
         uses: actions/checkout@v4

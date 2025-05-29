@@ -10,5 +10,5 @@ fi
 
 #Authorize Sandbox environment
 echo $SFDX_URL > ./sf_auth_url.txt
-sf org login sfdx-url -f ./sf_auth_url.txt -s -a $BITBUCKET_BRANCH
+sf org login sfdx-url -f ./sf_auth_url.txt -s -a $SANDBOX_NAME
 rm ./sf_auth_url.txt #remove auth file after authorization

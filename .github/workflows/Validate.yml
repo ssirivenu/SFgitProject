@@ -12,6 +12,18 @@ on:
 jobs:
   validate-dev:
     runs-on: ubuntu-latest
+    environment:
+      name: Test
+      url: ${{ vars.SF_DEV_URL }}
+    env:
+          SFDX_URL: ${{ secrets.SFDX_URL }}
+          API_VERSION: ${{ vars.API_VERSION }}
+          FROM_TAG: ${{ vars.FROM_TAG }}  
+          TO_TAG: ${{ vars.TO_TAG }}
+          SANDBOX_NAME: ${{ vars.SANDBOX_NAME }}
+          RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
+          UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
+          SPECIFIEDTESTS: ${{ vars.SPECIFIEDTESTS }}
     steps:
       - name: 'Checkout source code'
         uses: actions/checkout@v4
@@ -22,7 +34,9 @@ jobs:
         with:
           node-version: 20
       - name: Install Salesforce CLI
-        run: npm install -g @salesforce/cli
+        run: |
+          npm install -g @salesforce/cli
+          sf --version
       - name: Install sfdx-git-delta
         run: echo y | sf plugins:install sfdx-git-delta
             sf plugins

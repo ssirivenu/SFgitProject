@@ -1,0 +1,35 @@
+name: Salesforce CI/CD with sfdx-delta and Org Auth (using variables)
+
+on:
+  pull_request:
+    branches: [develop, test, release, master]
+    # We only care about changes to the force-app directory, which is the
+    # root directory of the sfdx project. This prevents the job from running
+     # when changing non-salesforce files (like this yml file).
+    paths:
+      - 'force-app/**'
+
+jobs:
+  validate-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout source code'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Salesforce CLI
+        run: npm install -g @salesforce/cli
+      - name: Install sfdx-git-delta
+        run: echo y | sf plugins:install sfdx-git-delta
+            sf plugins
+      - name: Authorize Org
+        run: |
+          bash scripts/pipelines/AuthorizeOrg.sh
+      - name: Generate Delta & run against org
+        run: |
+          # Add linting commands here
+          bash scripts/pipelines/DeployOrValidateToOrg.sh validate

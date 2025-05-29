@@ -1,4 +1,4 @@
-name: Salesforce CI/CD with sfdx-delta and Org Auth (using variables)
+name: Validate Devlopment
 
 on:
   pull_request:

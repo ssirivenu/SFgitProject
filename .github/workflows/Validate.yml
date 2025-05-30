@@ -12,22 +12,8 @@ on:
 jobs:
   validate-dev:
     runs-on: ubuntu-latest
-    steps:
-      - name: Set environment name based on PR branch
-        id: setenv
-        run: |
-          echo "Pull request from: ${{ github.base_ref }}"
-          if [[ "${{ github.base_ref }}" == "main" ]]; then
-            echo "ENV_NAME=production" >> $GITHUB_ENV
-          elif [[ "${{ github.base_ref }}" == "develop" ]]; then
-            echo "ENV_NAME=Test" >> $GITHUB_ENV
-          elif [[ "${{ github.base_ref }}" == release/* ]]; then
-            echo "ENV_NAME=staging" >> $GITHUB_ENV
-          else
-            echo "ENV_NAME=other" >> $GITHUB_ENV
-          fi
     environment:
-      name: ${{ github.base_ref == 'main' && 'production' || github.base_ref == 'refs/heads/develop' && 'dev' || startsWith(github.base_ref, 'refs/heads/release/') && 'staging' }}
+      name: ${{ github.base_ref == 'main' && 'production' || github.base_ref == 'develop' && 'Test' || startsWith(github.base_ref, 'refs/heads/release/') && 'staging' }}
     env:
         SFDX_URL: ${{ secrets.SFDX_URL }}
         API_VERSION: ${{ vars.API_VERSION }}

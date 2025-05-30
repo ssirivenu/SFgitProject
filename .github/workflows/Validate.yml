@@ -41,10 +41,9 @@ jobs:
             sf plugins
       - name: Authorize Org
         run: |
-          set -eo pipefail
+          set -e
           bash scripts/pipelines/AuthorizeOrg.sh
       - name: Generate Delta & run against org
         run: |
-          # Add linting commands here
-          set -eo pipefail
+          set -e
           bash scripts/pipelines/DeployOrValidateToOrg.sh validate

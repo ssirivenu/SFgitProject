@@ -11,6 +11,12 @@ fi
 #Authorize Sandbox environment
 echo $SFDX_URL > ./sf_auth_url.txt
 sf org login sfdx-url -f ./sf_auth_url.txt -s -a $SANDBOX_NAME
+if [ $? -eq 0 ]; then
+    echo "Successfully authorized the org: $SANDBOX_NAME"
+else
+    echo "Failed to authorize the org. Please check the error above."
+    exit 1
+fi
 rm ./sf_auth_url.txt #remove auth file after authorization
 
 

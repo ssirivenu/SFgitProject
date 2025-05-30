@@ -11,6 +11,12 @@ echo "" # insert new line
 #echo "FROM_TAG: $FROM_TAG" # if commented, HEAD~1 is used as the from commit
 sf sgd source delta -f $FROM_TAG -t $TO_TAG -o "changedSources" -i .forceignore -a $API_VERSION
 #sf sgd source delta -f HEAD~1 -t HEAD -o "changedSources" -i .forceignore -a $API_VERSION
+if [ $? -eq 0 ]; then
+    echo "Delta changes fetched successfully."
+else
+    echo "Failed to fetch delta changes. Please check the error above."
+    exit 1
+fi
 echo "" # insert new line
 echo "For Deployment - Contents of changedSources/package/package.xml:"
 cat changedSources/package/package.xml

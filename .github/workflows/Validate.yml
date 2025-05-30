@@ -26,12 +26,12 @@ jobs:
       - name: Set environment name based on PR branch
         id: setenv
         run: |
-          echo "Pull request from: ${{ github.head_ref }}"
-          if [[ "${{ github.head_ref }}" == "main" ]]; then
+          echo "Pull request from: ${{ github.base_ref }}"
+          if [[ "${{ github.base_ref }}" == "main" ]]; then
             echo "ENV_NAME=production" >> $GITHUB_ENV
-          elif [[ "${{ github.head_ref }}" == "develop" ]]; then
+          elif [[ "${{ github.base_ref }}" == "develop" ]]; then
             echo "ENV_NAME=Test" >> $GITHUB_ENV
-          elif [[ "${{ github.head_ref }}" == release/* ]]; then
+          elif [[ "${{ github.base_ref }}" == release/* ]]; then
             echo "ENV_NAME=staging" >> $GITHUB_ENV
           else
             echo "ENV_NAME=other" >> $GITHUB_ENV

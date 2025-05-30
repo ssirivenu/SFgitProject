@@ -12,7 +12,8 @@ on:
 jobs:
   validate-dev:
     runs-on: ubuntu-latest
-    environment: Test
+    environment: 
+      name: ${{ github.ref == 'refs/heads/main' && 'production' || github.ref == 'refs/heads/develop' && 'Test' || startsWith(github.ref, 'refs/heads/release/') && 'staging' }}
     env:
           SFDX_URL: ${{ secrets.SFDX_URL }}
           API_VERSION: ${{ vars.API_VERSION }}

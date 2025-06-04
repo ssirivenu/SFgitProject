@@ -40,19 +40,19 @@ then
         echo "No tests were specifed"
     else
         echo "Starting Org VALIDATION with specifed tests..."
-        sf project deploy start --dry-run --async --target-org $BITBUCKET_BRANCH --test-level $UNITTESTS_SCOPE --tests $SPECIFIEDTESTS --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
+        sf project deploy start --dry-run --async --target-org $SANDBOX_NAME --test-level $UNITTESTS_SCOPE --tests $SPECIFIEDTESTS --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
     fi
 elif [[ ($1 == "validate")]]
 then
     echo "Starting Org VALIDATION with $UNITTESTS_SCOPE..."
-    sf project deploy start --dry-run --async --target-org $BITBUCKET_BRANCH --test-level $UNITTESTS_SCOPE --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
+    sf project deploy start --dry-run --async --target-org $SANDBOX_NAME --test-level $UNITTESTS_SCOPE --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
 elif [[( "RunSpecifiedTests" == "$UNITTESTS_SCOPE" )]]
 then 
     echo "Starting Org DEPLOYMENT with specifed tests..."
-    sf project deploy start --async --target-org $BITBUCKET_BRANCH --test-level $UNITTESTS_SCOPE --tests $SPECIFIEDTESTS --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
+    sf project deploy start --async --target-org $SANDBOX_NAME --test-level $UNITTESTS_SCOPE --tests $SPECIFIEDTESTS --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
 else # argument is not provided, do a deployment to the org without running tests
     echo "Starting Org DEPLOYMENT with $UNITTESTS_SCOPE..."
-    sf project deploy start --async --target-org $BITBUCKET_BRANCH --test-level $UNITTESTS_SCOPE --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
+    sf project deploy start --async --target-org $SANDBOX_NAME --test-level $UNITTESTS_SCOPE --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
 fi
 
 echo ""
@@ -69,12 +69,11 @@ echo "Deployment Id is: $deploymentId"
 echo "status is: $status"
 echo "result_status is: $result_status"
 echo "message is: $message"
-echo "BITBUCKET_PR_DESTINATION_BRANCH value: $BITBUCKET_PR_DESTINATION_BRANCH"
 
 # Pipeline passes if there is nothing to deploy and it is not a Pull Request.
 if [[ $status == 1  ]];
 then echo ""; # insert new line after showing contents of package.xml file
-    echo "Deployment initiation failed.Please check deployment error/s in the target org"; exit 0;
+    echo "Deployment initiation failed.Please check deployment error/s in the target org"; exit 1;
 fi
 
 echo "" #insert new line

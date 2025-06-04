@@ -70,7 +70,7 @@ echo "status is: $status"
 echo "result_status is: $result_status"
 echo "message is: $message"
 
-# Pipeline passes if there is nothing to deploy and it is not a Pull Request.
+# Pipeline passes if there is nothing to deploy and it is not a Pull Request.gfhgh
 if [[ $status == 1  ]];
 then echo ""; # insert new line after showing contents of package.xml file
     echo "Deployment initiation failed.Please check deployment error/s in the target org"; exit 1;

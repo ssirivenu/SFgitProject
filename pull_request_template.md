@@ -1,1 +1,7 @@
-<p>Please provide a description of what has been implemented in this pull request:</p><p>Have the following tasks been completed:</p><ul><li>Review metadata and best practice</li><li>Link Documentation</li><li>Review pre/post-deployment steps if needed (<strong>this should only be used a last resort</strong>)</li></ul><p><br></p>
+Please provide a description of what has been implemented in this pull request: 
+
+Have the following tasks been completed:
+
+*  Review metadata and best practice
+*  Link Documentation
+*  Review pre/post-deployment steps if needed ( **this should only be used a last resort** )

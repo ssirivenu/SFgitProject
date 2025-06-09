@@ -1,10 +1,11 @@
-# Title: The name of the software
+# Title
+The name of the software
 
-#Description: High level overview of what this software does
+#Description
+High level overview of what this software does
 
-Features: Highlight or expand upon any features that are relevant to point out
-
-Architecture: High level overview of the software project architecture, and how this software fits in with the broader architecture within LIC. Link off to more detailed pages if needed. Diagrams are good here - some teams use images created using external software, or Mermaid
+Architecture
+High level overview of the software project architecture, and how this software fits in with the broader architecture within LIC. Link off to more detailed pages if needed. Diagrams are good here - some teams use images created using external software, or Mermaid
 
 Prerequisites / Dependencies: List any prerequisites or dependencies or third-party libraries that this software relies on
 

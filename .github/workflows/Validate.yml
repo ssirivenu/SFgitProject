@@ -1,0 +1,47 @@
+name: Validate Devlopment
+
+on:
+  pull_request:
+    branches: [develop, test, release, master]
+    # We only care about changes to the force-app directory, which is the
+    # root directory of the sfdx project. This prevents the job from running
+     # when changing non-salesforce files (like this yml file).
+    #paths:
+      #- 'force-app/**'
+
+jobs:
+  validate-dev:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.base_ref == 'main' && 'production' || github.base_ref == 'develop' && 'Test' || startsWith(github.base_ref, 'refs/heads/release/') && 'staging' }}
+    env:
+        SFDX_URL: ${{ secrets.SFDX_URL }}
+        API_VERSION: ${{ vars.API_VERSION }}
+        FROM_TAG: ${{ vars.FROM_TAG }}  
+        TO_TAG: ${{ vars.TO_TAG }}
+        SANDBOX_NAME: ${{ vars.SANDBOX_NAME }}
+        RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
+        UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
+        SPECIFIEDTESTS: ${{ vars.SPECIFIEDTESTS }}
+    steps:
+      - name: 'Checkout source code'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install Salesforce CLI
+        run: |
+          npm install -g @salesforce/cli
+          sf --version
+      - name: Install sfdx-git-delta
+        run: echo y | sf plugins:install sfdx-git-delta
+            sf plugins
+      - name: Authorize Org
+        run: |
+          bash scripts/pipelines/AuthorizeOrg.sh
+      - name: Generate Delta & run against org
+        run: |
+          bash scripts/pipelines/DeployOrValidateToOrg.sh validate

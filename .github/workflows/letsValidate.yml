@@ -25,6 +25,11 @@ jobs:
         SPECIFIEDTESTS: ${{ vars.SPECIFIEDTESTS }}
         INSTANCE_URL: ${{ vars.INSTANCE_URL }}
         CONSUMER_KEY: ${{secrets.CONSUMER_KEY}}
+        AESKEY: ${{ secrets.AESKEY }}
+        IVKEY: ${{ secrets.IVKEY }}
+        ENCRIPTED_KEY: ${{secrets.ENCRIPTED_KEY}}
+        USER_NAME: ${{secrets.USER_NAME}}
+
     steps:
       - name: 'Checkout source code'
         uses: actions/checkout@v4

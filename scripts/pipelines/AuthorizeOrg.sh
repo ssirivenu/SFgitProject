@@ -8,18 +8,18 @@ then
     echo "No changes will be validated/deployed because RUNAGAINSTORG is set to false"
     exit 1
 fi
-
+echo "$ENCRIPTED_KEY" > encrypted_key.txt
 # Decrypt JWT key
 openssl enc -aes-256-cbc -md sha1 -nosalt -base64 -d \
--in "$ENCRYPTED_KEY" \
--out ./server.key \
+-in encrypted_key.txt \
+-out server.key \
 -K "$AESKEY" \
 -iv "$IVKEY"
 
 # Authorize Sandbox environment
 sf org login jwt \
 -o "$USER_NAME" \
--f ./server.key \
+-f server.key \
 -i "$CONSUMER_KEY" \
 -r "$INSTANCE_URL" \
 -s \
@@ -34,3 +34,4 @@ fi
 
 # Remove credentials file
 rm -f ./server.key
+rm -f ./encrypted_key.txt

@@ -1,0 +1,49 @@
+name: Validate pull request
+# This workflow validates pull requests against the develop, test, release, and master branches.
+# It runs the sfdx-git-delta plugin to generate a delta of changes and then
+# deploys or validates those changes against the specified Salesforce org.
+# The workflow is triggered on pull requests to the specified branches.
+# It uses environment variables to configure the Salesforce org and other parameters.
+
+on:
+  pull_request:
+    branches: [develop, test, release, master]
+    # Changes to the force-app directory are only considered, since it is the root directory of sfdx project. 
+    # This prevents the job from running on every pull request, especially when the pull request is not related to Salesforce changes.
+    #paths:
+      #- 'force-app/**'
+
+jobs:
+  validatePR:
+    runs-on: ubuntu-latest
+    container: salesforce/cli:latest-full
+    environment:
+      name: ${{ github.base_ref == 'develop' && 'Development' || github.base_ref == 'test' && 'SIT'  || startsWith(github.base_ref, 'refs/heads/release/') && 'UAT' || github.base_ref == 'main' && 'Production' }}
+    env:
+        SFDX_URL: ${{ secrets.SFDX_URL }}
+        API_VERSION: ${{ vars.API_VERSION }}
+        FROM_TAG: ${{ vars.FROM_TAG }}  
+        TO_TAG: ${{ vars.TO_TAG }}
+        SANDBOX_NAME: ${{ vars.SANDBOX_NAME }}
+        RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
+        UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
+        SPECIFIEDTESTS: ${{ vars.SPECIFIEDTESTS }}
+    steps:
+      - name: 'Checkout source code'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Salesforce CLI
+        run: sf --version
+      - name: Install sfdx-git-delta
+        run: echo y | sf plugins:install sfdx-git-delta
+            sf plugins
+      - name: Create Delta files
+        run: |
+          bash scripts/pipelines/CreateDeltaFiles.sh 
+      - name: Authorize Org
+        run: |
+          bash scripts/pipelines/AuthorizeOrg.sh
+      - name: Validate against org
+        run: |
+          bash scripts/pipelines/DeployOrValidateToOrg.sh validate

@@ -3,6 +3,8 @@
 
 #Check if changes need to be run against org
 echo "Authorizing org $SANDBOX_NAME started"
+echo "AESKEY length: ${#AESKEY}"
+echo "IVKEY length: ${#IVKEY}"
 if [[ "$RUNAGAINSTORG" == "false" ]]
 then
     echo "No changes will be validated/deployed because RUNAGAINSTORG is set to false"

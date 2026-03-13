@@ -24,6 +24,7 @@ jobs:
         UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
         SPECIFIEDTESTS: ${{ vars.SPECIFIEDTESTS }}
         INSTANCE_URL: ${{ vars.INSTANCE_URL }}
+        CONSUMER_KEY: ${{secrets.CONSUMER_KEY}}
     steps:
       - name: 'Checkout source code'
         uses: actions/checkout@v4

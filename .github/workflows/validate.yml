@@ -23,6 +23,7 @@ jobs:
         RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
         UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
         SPECIFIEDTESTS: ${{ vars.SPECIFIEDTESTS }}
+        INSTANCE_URL: ${{ vars.INSTANCE_URL }}
     steps:
       - name: 'Checkout source code'
         uses: actions/checkout@v4

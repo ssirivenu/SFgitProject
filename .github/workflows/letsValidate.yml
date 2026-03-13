@@ -40,7 +40,8 @@ jobs:
       - name: Install Salesforce CLI
         run: sf --version
       - name: Install sfdx-git-delta
-        run: echo y | sf plugins:install sfdx-git-delta
+        run: | 
+            sf plugins install sfdx-git-delta@${{ vars.DELTA_VERSION }} --force
             sf plugins
       - name: Authorize Org
         run: |

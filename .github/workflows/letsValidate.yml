@@ -1,4 +1,4 @@
-name: Salesforce Validation (PNPM, No Container)
+name: Salesforce Validation (No Container, Tarball CLI)
 
 on:
   pull_request:
@@ -39,40 +39,50 @@ jobs:
         with:
           fetch-depth: 0
 
-      # 4️⃣ Install Salesforce CLI
+      # 2️⃣ Cache Salesforce CLI (optional, speeds up repeated runs)
+      - name: Cache Salesforce CLI
+        uses: actions/cache@v3
+        with:
+          path: ~/sf
+          key: sf-cli-${{ runner.os }}-${{ hashFiles('scripts/**') }}
+          restore-keys: |
+            sf-cli-
+
+      # 3️⃣ Install Salesforce CLI (if cache miss)
       - name: Install Salesforce CLI
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           mkdir -p ~/sf
           wget https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-linux-x64.tar.xz -O sf.tar.xz
           tar xJf sf.tar.xz -C ~/sf --strip-components 1
           echo "$HOME/sf/bin" >> $GITHUB_PATH
-          # Verify installation
           sf --version
-        # Source for install commands
 
-      # 5️⃣ Verify Salesforce CLI
+      # 4️⃣ Verify Salesforce CLI
       - name: Verify Salesforce CLI
         run: sf --version
 
-      # 6️⃣ Install sfdx-git-delta plugin (non-interactive)
-      - name: Install sfdx-git-delta
-        run: echo y | sf plugins install sfdx-git-delta@${{ vars.DELTA_VERSION }} --force
+      # 5️⃣ Install sfdx-git-delta plugin (non-interactive)
+      - name: Install sfdx-git-delta plugin
+        env:
+          SF_INSTALL_PLUGIN_SKIP_PROMPT: true
+        run: sf plugins install sfdx-git-delta@${{ vars.DELTA_VERSION }} --force
 
-      # 7️⃣ Authorize Org
+      # 6️⃣ Authorize Org
       - name: Authorize Org
         run: bash scripts/pipelines/AuthorizeOrg.sh
 
-      # 8️⃣ Generate Delta
+      # 7️⃣ Generate Delta
       - name: Generate Delta
         run: |
-          mkdir delta
+          mkdir -p delta
           sf sgd source delta \
             --to HEAD \
             --from $FROM_TAG \
             --output delta \
             --generate-delta
 
-      # 9️⃣ Detect Apex Changes
+      # 8️⃣ Detect Apex Changes
       - name: Detect Apex Changes
         id: apex_check
         run: |
@@ -81,7 +91,7 @@ jobs:
           else
             echo "apex_changed=false" >> $GITHUB_OUTPUT
 
-      # 🔟 Set Test Level
+      # 9️⃣ Set Test Level
       - name: Set Test Level
         id: testlevel
         run: |
@@ -90,7 +100,7 @@ jobs:
           else
             echo "testlevel=NoTestRun" >> $GITHUB_OUTPUT
 
-      # 1️⃣1️⃣ Validate Deployment (dry-run)
+      # 🔟 Validate Deployment (dry-run)
       - name: Validate Deployment
         run: |
           sf project deploy start \

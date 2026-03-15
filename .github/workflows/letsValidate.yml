@@ -65,7 +65,7 @@ jobs:
 
       # 5️⃣ Install sfdx-git-delta plugin (non-interactive)
       - name: Install sfdx-git-delta plugin (non-interactive)
-        run: echoy| sf plugins install sfdx-git-delta@6.31.0 --force
+        run: echo y | sf plugins install sfdx-git-delta
 
       # 6️⃣ Authorize Org
       - name: Authorize Org

@@ -39,21 +39,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      # 2️⃣ Install pnpm
-      - name: Install pnpm
-        run: npm install -g pnpm
-
-      # 3️⃣ Setup PNPM_HOME and PATH
-      - name: Setup pnpm global bin
-        run: |
-          export PNPM_HOME="$HOME/.local/share/pnpm"
-          export PATH="$PNPM_HOME:$PATH"
-          pnpm setup
-        shell: bash
-
       # 4️⃣ Install Salesforce CLI
       - name: Install Salesforce CLI
-        run: pnpm add -g @salesforce/cli
+        run: |
+          mkdir -p ~/sf
+          wget https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-linux-x64.tar.xz -O sf.tar.xz
+          tar xJf sf.tar.xz -C ~/sf --strip-components 1
+          echo "$HOME/sf/bin" >> $GITHUB_PATH
+          # Verify installation
+          sf --version
+        # Source for install commands
 
       # 5️⃣ Verify Salesforce CLI
       - name: Verify Salesforce CLI
@@ -61,11 +56,7 @@ jobs:
 
       # 6️⃣ Install sfdx-git-delta plugin (non-interactive)
       - name: Install sfdx-git-delta
-        env:
-          SF_INSTALL_PLUGIN_SKIP_PROMPT: true
-          PNPM_HOME: $HOME/.local/share/pnpm
-          PATH: $HOME/.local/share/pnpm:$PATH
-        run: pnpm exec sf plugins install sfdx-git-delta@${{ vars.DELTA_VERSION }} --force
+        run: echo y | sf plugins install sfdx-git-delta@${{ vars.DELTA_VERSION }} --force
 
       # 7️⃣ Authorize Org
       - name: Authorize Org

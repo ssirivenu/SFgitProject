@@ -64,10 +64,11 @@ jobs:
         run: sf --version
 
       # 5️⃣ Install sfdx-git-delta plugin (non-interactive)
-      - name: Install sfdx-git-delta plugin
+      - name: Install sfdx-git-delta plugin (non-interactive)
         env:
           SF_INSTALL_PLUGIN_SKIP_PROMPT: true
-        run: sf plugins install sfdx-git-delta@${{ vars.DELTA_VERSION }} --force
+          PATH: $HOME/sf/bin:$PATH
+        run: sf plugins install sfdx-git-delta@6.31.0 --force
 
       # 6️⃣ Authorize Org
       - name: Authorize Org

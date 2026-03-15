@@ -43,11 +43,15 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
-      # 3️⃣ Setup pnpm global bin (fixes ERR_PNPM_NO_GLOBAL_BIN_DIR)
+      # 3️⃣ Setup PNPM_HOME and PATH
       - name: Setup pnpm global bin
-        run: pnpm setup
+        run: |
+          export PNPM_HOME="$HOME/.local/share/pnpm"
+          export PATH="$PNPM_HOME:$PATH"
+          pnpm setup
+        shell: bash
 
-      # 4️⃣ Install Salesforce CLI via pnpm
+      # 4️⃣ Install Salesforce CLI
       - name: Install Salesforce CLI
         run: pnpm add -g @salesforce/cli
 
@@ -55,8 +59,12 @@ jobs:
       - name: Verify Salesforce CLI
         run: sf --version
 
-      # 6️⃣ Install sfdx-git-delta plugin
+      # 6️⃣ Install sfdx-git-delta plugin (non-interactive)
       - name: Install sfdx-git-delta
+        env:
+          SF_INSTALL_PLUGIN_SKIP_PROMPT: true
+          PNPM_HOME: $HOME/.local/share/pnpm
+          PATH: $HOME/.local/share/pnpm:$PATH
         run: pnpm exec sf plugins install sfdx-git-delta@${{ vars.DELTA_VERSION }} --force
 
       # 7️⃣ Authorize Org

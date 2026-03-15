@@ -1,63 +1,103 @@
-name: Validation
+name: Salesforce Validation (PNPM, No Container)
 
 on:
   pull_request:
     branches: [develop, test, release, master]
-    # We only care about changes to the force-app directory, which is the
-    # root directory of the sfdx project. This prevents the job from running
-     # when changing non-salesforce files (like this yml file).
-    #paths:
-      #- 'force-app/**'
 
 jobs:
   validate-dev:
     runs-on: ubuntu-latest
-    container: salesforce/cli:latest-full
+
     environment:
       name: ${{ github.base_ref == 'main' && 'production' || github.base_ref == 'develop' && 'Test' || startsWith(github.base_ref, 'refs/heads/release/') && 'staging' }}
+
     env:
-        SF_INSTALL_PLUGIN_SKIP_PROMPT: true
-        SF_DISABLE_AUTOUPDATE: true
-        SF_HIDE_RELEASE_NOTES: true
-        SFDX_URL: ${{ secrets.SFDX_URL }}
-        API_VERSION: ${{ vars.API_VERSION }}
-        FROM_TAG: ${{ vars.FROM_TAG }}  
-        TO_TAG: ${{ vars.TO_TAG }}
-        SANDBOX_NAME: ${{ vars.SANDBOX_NAME }}
-        RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
-        UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
-        SPECIFIEDTESTS: ${{ vars.SPECIFIEDTESTS }}
-        INSTANCE_URL: ${{ vars.INSTANCE_URL }}
-        CONSUMER_KEY: ${{secrets.CONSUMER_KEY}}
-        AESKEY: ${{ secrets.AESKEY }}
-        IVKEY: ${{ secrets.IVKEY }}
-        ENCRIPTED_KEY: ${{secrets.ENCRIPTED_KEY}}
-        USER_NAME: ${{secrets.USER_NAME}}
+      SF_INSTALL_PLUGIN_SKIP_PROMPT: true
+      SF_DISABLE_AUTOUPDATE: true
+      SF_HIDE_RELEASE_NOTES: true
+
+      SFDX_URL: ${{ secrets.SFDX_URL }}
+      API_VERSION: ${{ vars.API_VERSION }}
+      FROM_TAG: ${{ vars.FROM_TAG }}
+      TO_TAG: ${{ vars.TO_TAG }}
+      SANDBOX_NAME: ${{ vars.SANDBOX_NAME }}
+      RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
+      UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
+      SPECIFIEDTESTS: ${{ vars.SPECIFIEDTESTS }}
+      INSTANCE_URL: ${{ vars.INSTANCE_URL }}
+      CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+      AESKEY: ${{ secrets.AESKEY }}
+      IVKEY: ${{ secrets.IVKEY }}
+      ENCRIPTED_KEY: ${{ secrets.ENCRIPTED_KEY }}
+      USER_NAME: ${{ secrets.USER_NAME }}
 
     steps:
+
+      # 1️⃣ Checkout source
+      - name: Checkout source code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2️⃣ Install pnpm
       - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: Verify pnpm
-        run: pnpm -v
+      # 3️⃣ Setup pnpm global bin (fixes ERR_PNPM_NO_GLOBAL_BIN_DIR)
+      - name: Setup pnpm global bin
+        run: pnpm setup
 
-      - name: Install Salesforce CLI via pnpm
+      # 4️⃣ Install Salesforce CLI via pnpm
+      - name: Install Salesforce CLI
         run: pnpm add -g @salesforce/cli
 
+      # 5️⃣ Verify Salesforce CLI
       - name: Verify Salesforce CLI
         run: sf --version
 
-      - name: Install sfdx-git-delta plugin
-        env:
-          SF_INSTALL_PLUGIN_SKIP_PROMPT: true
-        run: pnpm exec sf plugins install sfdx-git-delta@${{ vars.DELTA_VERSION }} --force
+      # 6️⃣ Install sfdx-git-delta plugin
       - name: Install sfdx-git-delta
-        run: echo y| 
-            sf plugins install sfdx-git-delta@${{ vars.DELTA_VERSION }} --force
-            sf plugins
+        run: pnpm exec sf plugins install sfdx-git-delta@${{ vars.DELTA_VERSION }} --force
+
+      # 7️⃣ Authorize Org
       - name: Authorize Org
+        run: bash scripts/pipelines/AuthorizeOrg.sh
+
+      # 8️⃣ Generate Delta
+      - name: Generate Delta
         run: |
-          bash scripts/pipelines/AuthorizeOrg.sh
-      - name: Generate Delta & run against org
+          mkdir delta
+          sf sgd source delta \
+            --to HEAD \
+            --from $FROM_TAG \
+            --output delta \
+            --generate-delta
+
+      # 9️⃣ Detect Apex Changes
+      - name: Detect Apex Changes
+        id: apex_check
         run: |
-          bash scripts/pipelines/DeployOrValidateToOrg.sh validate
+          if grep -R ".cls\|.trigger" delta; then
+            echo "apex_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "apex_changed=false" >> $GITHUB_OUTPUT
+
+      # 🔟 Set Test Level
+      - name: Set Test Level
+        id: testlevel
+        run: |
+          if [ "${{ steps.apex_check.outputs.apex_changed }}" = "true" ]; then
+            echo "testlevel=RunLocalTests" >> $GITHUB_OUTPUT
+          else
+            echo "testlevel=NoTestRun" >> $GITHUB_OUTPUT
+
+      # 1️⃣1️⃣ Validate Deployment (dry-run)
+      - name: Validate Deployment
+        run: |
+          sf project deploy start \
+            --manifest delta/package/package.xml \
+            --post-destructive-changes delta/destructiveChanges/destructiveChanges.xml \
+            --target-org $SANDBOX_NAME \
+            --test-level ${{ steps.testlevel.outputs.testlevel }} \
+            --dry-run \
+            --wait 30

@@ -35,14 +35,22 @@ jobs:
         USER_NAME: ${{secrets.USER_NAME}}
 
     steps:
-      - name: 'Checkout source code'
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-      - name: Verify SF CLI
+      - name: Verify pnpm
+        run: pnpm -v
+
+      - name: Install Salesforce CLI via pnpm
+        run: pnpm add -g @salesforce/cli
+
+      - name: Verify Salesforce CLI
         run: sf --version
 
+      - name: Install sfdx-git-delta plugin
+        env:
+          SF_INSTALL_PLUGIN_SKIP_PROMPT: true
+        run: pnpm exec sf plugins install sfdx-git-delta@${{ vars.DELTA_VERSION }} --force
       - name: Install sfdx-git-delta
         run: echo y| 
             sf plugins install sfdx-git-delta@${{ vars.DELTA_VERSION }} --force

@@ -12,8 +12,6 @@ on:
 jobs:
   validate-dev:
     runs-on: ubuntu-latest
-    container: 
-      image: salesforce/cli:latest-full
     environment:
       name: ${{ github.base_ref == 'main' && 'production' || github.base_ref == 'develop' && 'Test' || startsWith(github.base_ref, 'refs/heads/release/') && 'staging' }}
     env:
@@ -39,9 +37,13 @@ jobs:
         with:
           fetch-depth: 0
       - name: Install Salesforce CLI
+        uses: salesforcecli/github-action@v2
+
+      - name: Verify SF CLI
         run: sf --version
+
       - name: Install sfdx-git-delta
-        run: | 
+        run: echo y| 
             sf plugins install sfdx-git-delta@${{ vars.DELTA_VERSION }}
             sf plugins
       - name: Authorize Org

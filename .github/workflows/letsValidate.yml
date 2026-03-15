@@ -50,12 +50,13 @@ jobs:
 
       # 3️⃣ Install Salesforce CLI (if cache miss)
       - name: Install Salesforce CLI
-        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           mkdir -p ~/sf
           wget https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-linux-x64.tar.xz -O sf.tar.xz
           tar xJf sf.tar.xz -C ~/sf --strip-components 1
+          export PATH="$HOME/sf/bin:$PATH"
           echo "$HOME/sf/bin" >> $GITHUB_PATH
+          # Now sf works immediately
           sf --version
 
       # 4️⃣ Verify Salesforce CLI

@@ -65,6 +65,7 @@ jobs:
 
       # 5️⃣ Install sfdx-git-delta plugin (non-interactive)
       - name: Install sfdx-git-delta plugin (non-interactive)
+        shell: bash
         env:
           SF_INSTALL_PLUGIN_SKIP_PROMPT: true
           PATH: $HOME/sf/bin:$PATH

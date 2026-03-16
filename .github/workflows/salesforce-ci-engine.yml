@@ -19,8 +19,7 @@ on:
 jobs:
   salesforcePipeline:
 
-    runs-on:
-      group: salesforce-runners
+    runs-on: ubuntu-latest
     container: salesforce/cli:latest-full
 
     # GITHUB_TOKEN Permissions

@@ -41,6 +41,10 @@ jobs:
       USER_NAME: ${{secrets.USER_NAME}}
       CONSUMER_KEY: ${{secrets.CONSUMER_KEY}}
       SF_CLI_URL: ${{vars.SF_CLI_URL}}
+      AESKEY: ${{secrets.AESKEY}}
+      IVKEY: ${{secrets.AESKEY}}
+      ENCRIPTED_KEY: ${{secrets.ENCRIPTED_KEY}}
+
 
     steps:
       - name: Checkout source code

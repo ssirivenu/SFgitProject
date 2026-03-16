@@ -20,7 +20,6 @@ jobs:
   salesforcePipeline:
 
     runs-on: ubuntu-latest
-    container: salesforce/cli:latest-full
 
     # GITHUB_TOKEN Permissions
     permissions:
@@ -52,6 +51,10 @@ jobs:
           path: ~/.sf
           key: sf-cli-${{ runner.os }}
 
+      - name: Download and install Salesforce CLI
+        run: |
+          curl -s https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar xJ
+          ./sfdx/install
       - name: Verify Salesforce CLI
         run: sf --version
       - name: Install sfdx-git-delta

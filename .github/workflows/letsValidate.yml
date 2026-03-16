@@ -14,4 +14,4 @@ jobs:
     with:
       deploy_mode: validate
       run_pmd: true
-      environment_name: ${{ github.base_ref == 'develop' && 'CIT' || github.base_ref == 'test' && 'SIT' || startsWith(github.base_ref,'release/') && 'UAT' || github.base_ref == 'main' && 'Production' }}
+      environment_name: ${{ github.base_ref == 'develop' && 'develop' || github.base_ref == 'test' && 'SIT' || startsWith(github.base_ref,'release/') && 'UAT' || github.base_ref == 'main' && 'Production' }}

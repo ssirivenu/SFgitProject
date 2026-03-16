@@ -59,6 +59,7 @@ jobs:
         run: |
           set -e
           echo "📥 Downloading Salesforce CLI..."
+          echo "Using Salesforce CLI URL: $SF_CLI_URL"
           mkdir -p ~/cli/sf
           curl -sL $SF_CLI_URL | tar xzC ~/cli/sf --strip-components 1
           echo "$HOME/cli/sf/bin" >> $GITHUB_PATH

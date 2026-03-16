@@ -37,6 +37,9 @@ jobs:
       RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
       UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
       SPECIFIEDTESTS: ${{ inputs.specified_tests || vars.SPECIFIEDTESTS || '' }}
+      INSTANCE_URL: ${{vars.INSTANCE_URL}}
+      USER_NAME: ${{secrets.USER_NAME}}
+      CONSUMER_KEY: ${{secrets.CONSUMER_KEY}}
 
     steps:
       - name: Checkout source code
@@ -57,8 +60,7 @@ jobs:
           set -e
           echo "📥 Downloading Salesforce CLI..."
           mkdir -p ~/cli/sf
-          curl -sL https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-linux-x64.tar.gz \
-            | tar xzC ~/cli/sf --strip-components 1
+          curl -sL $SF_CLI_URL | tar xzC ~/cli/sf --strip-components 1
           echo "$HOME/cli/sf/bin" >> $GITHUB_PATH
           echo "✅ Salesforce CLI installed successfully"
       - name: Verify Salesforce CLI

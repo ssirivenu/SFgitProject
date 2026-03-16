@@ -53,7 +53,8 @@ jobs:
 
       - name: Download and install Salesforce CLI
         run: |
-          curl -s https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar xJ
+          curl -sSL https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.gz -o sfdx-cli.tar.gz
+          tar -xzf sfdx-cli.tar.gz
           ./sfdx/install
       - name: Verify Salesforce CLI
         run: sf --version

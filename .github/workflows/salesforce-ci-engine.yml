@@ -40,6 +40,7 @@ jobs:
       INSTANCE_URL: ${{vars.INSTANCE_URL}}
       USER_NAME: ${{secrets.USER_NAME}}
       CONSUMER_KEY: ${{secrets.CONSUMER_KEY}}
+      SF_CLI_URL: ${{vars.SF_CLI_URL}}
 
     steps:
       - name: Checkout source code

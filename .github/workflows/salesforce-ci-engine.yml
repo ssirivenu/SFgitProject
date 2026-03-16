@@ -51,11 +51,16 @@ jobs:
           path: ~/.sf
           key: sf-cli-${{ runner.os }}
 
-      - name: Download and install Salesforce CLI
+      # Download and install Salesforce CLI with error handling
+      - name: Install Salesforce CLI
         run: |
-          curl -sSL https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.gz -o sfdx-cli.tar.gz
-          tar -xzf sfdx-cli.tar.gz
-          ./sfdx/install
+          set -e
+          echo "📥 Downloading Salesforce CLI..."
+          mkdir -p ~/cli/sf
+          curl -sL https://developer.salesforce.com/media/salesforce-cli/sf/channels/stable/sf-linux-x64.tar.gz \
+            | tar xzC ~/cli/sf --strip-components 1
+          echo "$HOME/cli/sf/bin" >> $GITHUB_PATH
+          echo "✅ Salesforce CLI installed successfully"
       - name: Verify Salesforce CLI
         run: sf --version
       - name: Install sfdx-git-delta

@@ -57,6 +57,7 @@ jobs:
         with:
           fetch-depth: 0
 
+<<<<<<< feature/cicd
       - name: Install Salesforce CLI
         id: install_cli
         run: |
@@ -76,6 +77,21 @@ jobs:
           key: sf-cli-${{ runner.os }}-v1
           restore-keys: |
             sf-cli-${{ runner.os }}-
+=======
+      # Cache SF CLI plugins
+      - name: Cache Salesforce Plugins
+        uses: actions/cache@v4
+        with:
+          path: ~/.sf
+          key: sf-cli-${{ runner.os }}
+
+      # Install Salesforce CLI
+      - name: Install Salesforce CLI
+        run: |
+          mkdir -p ~/cli/sf
+          curl -sL "$SF_CLI_URL" | tar xzC ~/cli/sf --strip-components 1
+          echo "$HOME/cli/sf/bin" >> $GITHUB_PATH
+>>>>>>> develop
 
       - name: Verify CLI
         run: sf --version
@@ -119,10 +135,17 @@ jobs:
       # Deploy or Validate
       - name: Deploy or Validate
         run: |
+<<<<<<< feature/cicd
           if [[ "${{ github.event_name }}" == "push" ]]; then
             ACTION="deploy"                 # Always deploy on push
           else
             ACTION="${{ inputs.ValidateOrDeploy || 'validate' }}"  # PRs or manual runs
+=======
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            ACTION="validate"
+          else
+            ACTION="${{ inputs.ValidateOrDeploy || 'deploy' }}"
+>>>>>>> develop
           fi
           echo "Running $ACTION..."
           bash scripts/pipelines/DeployOrValidateToOrg.sh $ACTION

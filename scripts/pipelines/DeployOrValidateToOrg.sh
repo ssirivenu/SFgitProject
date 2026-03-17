@@ -1,93 +1,119 @@
 #!/bin/bash     
-#Srii Seelam 2024-JUN-07- Initial Version
 # Deploy or Validate incremental changes to the org
-# Script Arguments:
-# $1 = if null, do actual deployment to Org, else do a validation only
 
-# Create folder to store the Increment/ Changes 
-mkdir changedSources
-# Get Delta using the Sf git delta plugin 
-echo "" # insert new line
-#echo "FROM_TAG: $FROM_TAG" # if commented, HEAD~1 is used as the from commit
-sf sgd source delta -f $FROM_TAG -t $TO_TAG -o "changedSources" -i .forceignore -a $API_VERSION
-#sf sgd source delta -f HEAD~1 -t HEAD -o "changedSources" -i .forceignore -a $API_VERSION
-if [ $? -eq 0 ]; then
-    echo "Delta changes fetched successfully."
-else
-    echo "Failed to fetch delta changes. Please check the error above."
-    exit 1
-fi
-echo "" # insert new line
-echo "For Deployment - Contents of changedSources/package/package.xml:"
-cat changedSources/package/package.xml
-echo "" # insert new line
-echo "Destructive Changes in changedSources/destructiveChanges/destructiveChanges.xml:"
-cat changedSources/destructiveChanges/destructiveChanges.xml
-echo "" # insert new line
+SUMMARY_FILE="$GITHUB_STEP_SUMMARY"
+
 # check if package files have no components to deploy
 if ! grep -q '<types>' ./changedSources/package/package.xml ./changedSources/destructiveChanges/destructiveChanges.xml 
 then 
-    echo "No changes to Deploy. Please deploy any expected changes manually.";exit 0; 
+    echo "No changes to Deploy. Please deploy any expected changes manually."
+    echo "## ⚠️ No Changes Detected" >> $SUMMARY_FILE
+    echo "No components found to deploy." >> $SUMMARY_FILE
+    exit 0
 fi
-echo "" # insert new line
+
+echo ""
 echo "DeployorValidateToOrg.sh argument is: $1"
 echo ""
 
-if [[ ($1 == "validate") && ( "RunSpecifiedTests" == "$UNITTESTS_SCOPE" ) ]] 
-then
-    if [[(-z SPECIFIEDTESTS) ]]
-    then 
-        echo "No tests were specifed"
-    else
-        echo "Starting Org VALIDATION with specifed tests..."
-        sf project deploy start --dry-run --async --target-org $SANDBOX_NAME --test-level $UNITTESTS_SCOPE --tests $SPECIFIEDTESTS --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
-    fi
-elif [[ ($1 == "validate")]]
-then
-    echo "Starting Org VALIDATION with $UNITTESTS_SCOPE..."
-    sf project deploy start --dry-run --async --target-org $SANDBOX_NAME --test-level $UNITTESTS_SCOPE --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
-elif [[( "RunSpecifiedTests" == "$UNITTESTS_SCOPE" )]]
-then 
-    echo "Starting Org DEPLOYMENT with specifed tests..."
-    sf project deploy start --async --target-org $SANDBOX_NAME --test-level $UNITTESTS_SCOPE --tests $SPECIFIEDTESTS --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
-else # argument is not provided, do a deployment to the org without running tests
-    echo "Starting Org DEPLOYMENT with $UNITTESTS_SCOPE..."
-    sf project deploy start --async --target-org $SANDBOX_NAME --test-level $UNITTESTS_SCOPE --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
+ACTION=$1
+
+# Determine mode
+if [[ "$ACTION" == "deploy" ]]; then
+  MODE="Deploy"
+  DRY_RUN=""
+else
+  MODE="Validation"
+  DRY_RUN="--dry-run"
 fi
 
+# Base command
+CMD="sf project deploy start $DRY_RUN --async \
+  --target-org $SANDBOX_NAME \
+  --test-level $UNITTESTS_SCOPE \
+  --manifest changedSources/package/package.xml \
+  --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml \
+  --api-version $API_VERSION \
+  --ignore-conflicts \
+  --json"
+
+# Handle specified tests
+if [[ "$UNITTESTS_SCOPE" == "RunSpecifiedTests" ]]; then
+  if [[ -z "$SPECIFIEDTESTS" ]]; then
+    echo "❌ No tests were specified"
+
+    echo "## ❌ $MODE Failed" >> $SUMMARY_FILE
+    echo "No tests were specified while using RunSpecifiedTests." >> $SUMMARY_FILE
+
+    exit 1
+  fi
+
+  echo "🚀 Starting Org $MODE with specified tests: $SPECIFIEDTESTS"
+  CMD="$CMD --tests $SPECIFIEDTESTS"
+else
+  echo "🚀 Starting Org $MODE with $UNITTESTS_SCOPE"
+fi
+
+# Execute
+eval "$CMD" > ./changedSources/asyncDeployResults.json
+
 echo ""
-echo "Contents of changedSources/asyncDeployResults.json :"
 cat changedSources/asyncDeployResults.json
 
-# if the package.xml is empty, the pipeline fails
-status="$(cat changedSources/asyncDeployResults.json | jq -r '.status' )"
-result_status="$(cat changedSources/asyncDeployResults.json | jq -r '.result.status')"
-message="$(cat changedSources/asyncDeployResults.json | jq -r '.message')"
-deploymentId="$(cat changedSources/asyncDeployResults.json | jq -r '.result.id')"
+# Extract values
+status=$(jq -r '.status' ./changedSources/asyncDeployResults.json)
+result_status=$(jq -r '.result.status' ./changedSources/asyncDeployResults.json)
+message=$(jq -r '.message' ./changedSources/asyncDeployResults.json)
+deploymentId=$(jq -r '.result.id' ./changedSources/asyncDeployResults.json)
+
 echo ""
 echo "Deployment Id is: $deploymentId"
 echo "status is: $status"
 echo "result_status is: $result_status"
 echo "message is: $message"
 
-# Pipeline passes if there is nothing to deploy and it is not a Pull Request.gfhgh
-if [[ $status == 1  ]];
-then echo ""; # insert new line after showing contents of package.xml file
-    echo "Deployment initiation failed.Please check deployment error/s in the target org"; exit 1;
+# ❌ Initiation failure
+if [[ $status == 1 ]]; then
+    echo "Deployment initiation failed."
+
+    echo "## ❌ $MODE Failed (Start Phase)" >> $SUMMARY_FILE
+    echo "Message: $message" >> $SUMMARY_FILE
+
+    exit 1
 fi
 
-echo "" #insert new line
+# Wait for completion
 sf project deploy resume -i $deploymentId -w 60
 sf project deploy report -i $deploymentId --json > ./changedSources/deployReport.json
-success="$(cat changedSources/deployReport.json | jq -r '.result.success')"
-echo "" #insert new line
-echo "success is: $success"
-echo "" #insert new line
-#echo "Contents of changedSources/deployReport.json :"
-#cat changedSources/deployReport.json
 
-# if deployment status is 1, deployment has failed and the pipeline should fail
-if [[ $success == "false" ]];
-    then echo "";
-        echo "Deployment failed. Please check deployment error/s in the target org."; exit 1;
+success=$(jq -r '.result.success' ./changedSources/deployReport.json)
+
+echo ""
+echo "success is: $success"
+
+# ❌ Deployment failure
+if [[ "$success" == "false" ]]; then
+    echo "Deployment failed."
+
+    echo "## ❌ $MODE Failed" >> $SUMMARY_FILE
+    echo "" >> $SUMMARY_FILE
+
+    echo "### 🔴 Component Errors" >> $SUMMARY_FILE
+    echo '```' >> $SUMMARY_FILE
+    jq -r '.result.details.componentFailures[]?.problem // empty' ./changedSources/deployReport.json >> $SUMMARY_FILE
+    echo '```' >> $SUMMARY_FILE
+
+    echo "### 🧪 Test Failures" >> $SUMMARY_FILE
+    echo '```' >> $SUMMARY_FILE
+    jq -r '.result.details.runTestResult.failures[]?.message // empty' ./changedSources/deployReport.json >> $SUMMARY_FILE
+    echo '```' >> $SUMMARY_FILE
+
+    exit 1
 fi
+
+# ✅ Success
+echo "Deployment succeeded."
+
+echo "## ✅ $MODE Succeeded" >> $SUMMARY_FILE
+echo "- Org: $SANDBOX_NAME" >> $SUMMARY_FILE
+echo "- Deployment Id: $deploymentId" >> $SUMMARY_FILE

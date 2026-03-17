@@ -57,11 +57,13 @@ jobs:
           fetch-depth: 0
 
       # Cache SF CLI plugins
-      - name: Cache Salesforce Plugins
+      - name: Cache Salesforce CLI
         uses: actions/cache@v4
         with:
-          path: ~/.sf
-          key: sf-cli-${{ runner.os }}
+          path: ~/cli/sf
+          key: sf-cli-${{ runner.os }}-v1
+          restore-keys: |
+            sf-cli-${{ runner.os }}-
 
       # Install Salesforce CLI
       - name: Install Salesforce CLI

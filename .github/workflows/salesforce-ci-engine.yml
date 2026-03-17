@@ -129,7 +129,37 @@ jobs:
           IVKEY: ${{secrets.IVKEY}}
           ENCRIPTED_KEY: ${{secrets.ENCRIPTED_KEY}}
         run: |
-          bash scripts/pipelines/AuthorizeOrg.sh
+          run: |
+          set -e
+          echo "🔐 Authorizing org $SANDBOX_NAME..."
+          # Debug lengths (safe)
+          echo "AESKEY length: ${#AESKEY}"
+          echo "IVKEY length: ${#IVKEY}"
+          echo "ENCRIPTED_KEY length: ${#ENCRIPTED_KEY}"
+          echo "CONSUMER_KEY length: ${#CONSUMER_KEY}"
+          echo "USER_NAME length: ${#USER_NAME}"
+
+          # Write encrypted key to file and decrypt
+          echo "$ENCRIPTED_KEY" > encrypted_key.txt
+          openssl enc -aes-256-cbc -md sha1 -nosalt -base64 -d \
+            -in encrypted_key.txt \
+            -out server.key \
+            -K "$AESKEY" \
+            -iv "$IVKEY"
+
+          # Authorize Sandbox
+          sf org login jwt \
+            -o "$USER_NAME" \
+            -f server.key \
+            -i "$CONSUMER_KEY" \
+            -r "$INSTANCE_URL" \
+            -s \
+            -a "$SANDBOX_NAME"
+
+          echo "✅ Successfully authorized the org: $SANDBOX_NAME"
+
+          # Cleanup
+          rm -f server.key encrypted_key.txt
 
       - name: Deploy or Validate
         run: |

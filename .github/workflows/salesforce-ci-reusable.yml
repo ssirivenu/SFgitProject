@@ -31,6 +31,8 @@ on:
 jobs:
   ManualDeployment:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     environment:
       name: ${{ inputs.environment }}
     env:

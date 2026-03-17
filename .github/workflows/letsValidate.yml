@@ -99,7 +99,7 @@ jobs:
       # Run Code Scan
       - name: Run PMD Scan
         if: hashFiles('changedSources/force-app/main/default/classes/**/*.cls') != ''
-        id: codescan
+        id: Codescan
         run: bash scripts/pipelines/RunPMDScan.sh
 
       - name: Upload PMD Report

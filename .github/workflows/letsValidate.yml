@@ -34,10 +34,11 @@ jobs:
     
     environment: 
       name: ${{ 
-              inputs.environment != '' && inputs.environment ||
-              github.event_name == 'pull_request' && github.base_ref ||
-              github.event_name == 'push' && github.ref_name }}
+        inputs.environment != '' && inputs.environment ||
+              github.event_name == 'pull_request' && ( github.base_ref ) ||
+              github.event_name == 'push' && (github.ref_name ) }}
     env:
+
       API_VERSION: ${{ vars.API_VERSION }}
       FROM_TAG: ${{ vars.FROM_TAG }}
       TO_TAG: ${{ vars.TO_TAG }}

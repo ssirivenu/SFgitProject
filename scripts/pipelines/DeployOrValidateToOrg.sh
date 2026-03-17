@@ -14,32 +14,42 @@ echo "" # insert new line
 echo "DeployorValidateToOrg.sh argument is: $1"
 echo ""
 
-if [[ ($1 == "deploy") && ( "RunSpecifiedTests" == "$UNITTESTS_SCOPE" ) ]] 
-then
-    if [[(-z SPECIFIEDTESTS) ]]
-    then 
-        echo "No tests were specifed"
-    else
-        echo "Starting Org DEPLOYMENT with specifed tests... $SPECIFIEDTESTS"
-        sf project deploy start --async --target-org $SANDBOX_NAME --test-level $UNITTESTS_SCOPE --tests $SPECIFIEDTESTS --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
-    fi
-elif [[ ($1 == "deploy")]]
-then
-    echo "Starting Org DEPLOYMENT with $UNITTESTS_SCOPE..."
-    sf project deploy start --async --target-org $SANDBOX_NAME --test-level $UNITTESTS_SCOPE --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
-elif [[( "RunSpecifiedTests" == "$UNITTESTS_SCOPE" )]]
-then
-    if [[(-z SPECIFIEDTESTS) ]]
-    then 
-        echo "No tests were specifed"
-    else
-        echo "Starting Org VALIDATION with specifed tests... $SPECIFIEDTESTS"
-        sf project deploy start --dry-run --async --target-org $SANDBOX_NAME --test-level $UNITTESTS_SCOPE --tests $SPECIFIEDTESTS --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
-    fi
-else # argument is not provided, do a deployment to the org without running tests
-    echo "Starting Org VALIDATION with $UNITTESTS_SCOPE..."
-    sf project deploy start --dry-run --async --target-org $SANDBOX_NAME --test-level $UNITTESTS_SCOPE --manifest "changedSources/package/package.xml" --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml --api-version $API_VERSION --ignore-conflicts --json > ./changedSources/asyncDeployResults.json
+ACTION=$1
+
+# Determine mode
+if [[ "$ACTION" == "deploy" ]]; then
+  MODE="deploy"
+  DRY_RUN=""
+else
+  MODE="validation"
+  DRY_RUN="--dry-run"
 fi
+
+# Base command
+CMD="sf project deploy start $DRY_RUN --async \
+  --target-org $SANDBOX_NAME \
+  --test-level $UNITTESTS_SCOPE \
+  --manifest changedSources/package/package.xml \
+  --post-destructive-changes changedSources/destructiveChanges/destructiveChanges.xml \
+  --api-version $API_VERSION \
+  --ignore-conflicts \
+  --json"
+
+# Handle specified tests
+if [[ "$UNITTESTS_SCOPE" == "RunSpecifiedTests" ]]; then
+  if [[ -z "$SPECIFIEDTESTS" ]]; then
+    echo "❌ No tests were specified"
+    exit 1
+  fi
+
+  echo "🚀 Starting Org $MODE with specified tests: $SPECIFIEDTESTS"
+  CMD="$CMD --tests $SPECIFIEDTESTS"
+else
+  echo "🚀 Starting Org $MODE with $UNITTESTS_SCOPE"
+fi
+
+# Execute
+eval "$CMD" > ./changedSources/asyncDeployResults.json
 
 echo ""
 echo "Contents of changedSources/asyncDeployResults.json :"

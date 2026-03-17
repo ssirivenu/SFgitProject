@@ -1,18 +1,106 @@
-name: Validate Pull Request
+name: Salesforce CI Pipeline
 
 on:
   pull_request:
-    branches: [develop, test, release, main]
-    paths:
-      - 'force-app/**'
+    branches:
+      - develop
+      - main
+  push:
+    branches:
+      - develop
+      - main
+  workflow_dispatch:
 
 jobs:
-  validate:
 
-    uses: ./.github/workflows/salesforce-ci-engine.yml
+  salesforce-ci:
 
-    with:
-      deploy_mode: validate
-      run_pmd: true
-      environment_name: ${{ github.base_ref == 'develop' && 'develop' || github.base_ref == 'test' && 'SIT' || startsWith(github.base_ref,'release/') && 'UAT' || github.base_ref == 'main' && 'Production' }}
-    secrets: inherit
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    env:
+      API_VERSION: ${{ vars.API_VERSION }}
+      FROM_TAG: HEAD~1
+      TO_TAG: HEAD
+      SANDBOX_NAME: ${{ vars.SANDBOX_NAME }}
+      INSTANCE_URL: ${{ vars.INSTANCE_URL }}
+      RUNAGAINSTORG: true
+      SF_CLI_URL: ${{ vars.SF_CLI_URL }}
+
+    steps:
+
+      # Checkout
+      - name: Checkout Source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Cache SF CLI plugins
+      - name: Cache Salesforce Plugins
+        uses: actions/cache@v4
+        with:
+          path: ~/.sf
+          key: sf-cli-${{ runner.os }}
+
+      # Install Salesforce CLI
+      - name: Install Salesforce CLI
+        run: |
+          mkdir -p ~/cli/sf
+          curl -sL "$SF_CLI_URL" | tar xzC ~/cli/sf --strip-components 1
+          echo "$HOME/cli/sf/bin" >> $GITHUB_PATH
+
+      - name: Verify CLI
+        run: sf --version
+
+      # Install Delta Plugin
+      - name: Install sfdx-git-delta
+        run: |
+          echo y | sf plugins:install sfdx-git-delta
+
+      # Generate Delta Package
+      - name: Create Delta
+        run: bash scripts/pipelines/CreateDeltaFiles.sh
+
+      # PMD Setup
+      - name: Setup PMD
+        uses: legetz/setup-pmd@7.0.0-rc4
+
+      # Run Code Scan
+      - name: Run PMD Scan
+        if: hashFiles('changedSources/force-app/main/default/classes/**/*.cls') != ''
+        id: codescan
+        run: bash scripts/pipelines/RunPmdScan.sh
+
+      - name: Upload PMD Report
+        if: failure() && steps.Codescan.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: pmd-scan-results
+          path: pmdResults/PmdResults.txt
+
+      # Authorize Salesforce Org
+      - name: Authorize Org
+        env:
+          AESKEY: ${{ secrets.AESKEY }}
+          IVKEY: ${{ secrets.IVKEY }}
+          ENCRIPTED_KEY: ${{ secrets.ENCRIPTED_KEY }}
+          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+          USER_NAME: ${{ secrets.USER_NAME }}
+        run: bash scripts/pipelines/AuthorizeOrg.sh
+
+      # Deploy or Validate
+      - name: Deploy or Validate
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "Running validation..."
+            bash scripts/pipelines/DeployOrValidateToOrg.sh validate
+          else
+            echo "Running deployment..."
+            bash scripts/pipelines/DeployOrValidateToOrg.sh deploy
+          fi
+
+      - name: Pipeline Summary
+        run: |
+          echo "✅ Salesforce CI pipeline finished successfully" >> $GITHUB_STEP_SUMMARY

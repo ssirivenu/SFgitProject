@@ -10,6 +10,18 @@ on:
       - develop
       - main
   workflow_dispatch:
+    inputs:
+        environment:
+          description: 'Environment to run tests against'
+          required: true
+          default: 'Development'
+        testclassnames:
+          description: 'Test Class Names to run'
+          required: false
+        ValidateOrDeploy:
+          description: 'Validate or Deploy changes'
+          required: true
+          default: 'validate'
 
 jobs:
 

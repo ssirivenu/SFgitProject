@@ -55,6 +55,8 @@ jobs:
       INSTANCE_URL: ${{ vars.INSTANCE_URL }}
       RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
       SF_CLI_URL: ${{ vars.SF_CLI_URL }}
+      UNITTESTS_SCOPE: ${{vars.UNITTESTS_SCOPE}}
+      SPECIFIEDTESTS: ${{vars.SPECIFIEDTESTS}}
 
     steps:
 

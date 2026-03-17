@@ -71,7 +71,7 @@ jobs:
       - name: Run PMD Scan
         if: hashFiles('changedSources/force-app/main/default/classes/**/*.cls') != ''
         id: codescan
-        run: bash scripts/pipelines/RunPmdScan.sh
+        run: bash scripts/pipelines/RunPMDScan.sh
 
       - name: Upload PMD Report
         if: failure() && steps.Codescan.outcome == 'failure'

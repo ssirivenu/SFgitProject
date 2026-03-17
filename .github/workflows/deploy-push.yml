@@ -1,0 +1,17 @@
+name: Deploy code
+
+on:
+  push:
+    branches:
+      - develop
+      - test
+      - main
+
+jobs:
+
+  Deployment:
+    uses: ./.github/workflows/salesforce-ci-reusable.yml
+    with:
+      environment: ${{  github.ref_name == 'develop' && 'develop' || github.ref_name == 'test' && 'SIT' || startsWith(github.ref_name, 'release/') && 'UAT' }}
+      action_type: 'deploy'
+    secrets: inherit

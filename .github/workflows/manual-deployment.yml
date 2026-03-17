@@ -95,6 +95,7 @@ jobs:
           ENCRIPTED_KEY: ${{ secrets.ENCRIPTED_KEY }}
           CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
           USER_NAME: ${{ secrets.USER_NAME }}
+          INSTANCE_URL: ${{vars.INSTANCE_URL}}
         run: bash scripts/pipelines/AuthorizeOrg.sh
       - name: 🚀 Start Action
         run: |

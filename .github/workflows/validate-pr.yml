@@ -10,7 +10,7 @@ on:
 jobs:
 
   Validate:
-    uses: ./.github/workflows/manual-deployment.yml
+    uses: ./.github/workflows/salesforce-ci-reusable.yml
     with:
       environment: ${{  github.base_ref == 'develop' && 'develop' || github.base_ref == 'test' && 'SIT' || startsWith(github.base_ref, 'refs/heads/release/') && 'UAT'|| github.base_ref == 'main' && 'Production' }}
       action_type: 'validate'

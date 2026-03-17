@@ -9,7 +9,7 @@ on:
 
 jobs:
 
-  salesforcePipeline:
+  Deployment:
     uses: ./.github/workflows/manual-deployment.yml
     with:
       environment: ${{  github.ref_name == 'develop' && 'develop' || github.ref_name == 'test' && 'SIT' || startsWith(github.ref_name, 'release/') && 'UAT' }}

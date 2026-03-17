@@ -35,18 +35,8 @@ jobs:
     environment: 
       name: ${{ 
               inputs.environment != '' && inputs.environment ||
-              github.event_name == 'pull_request' && (
-                github.base_ref == 'develop' && 'develop' ||
-                github.base_ref == 'test' && 'SIT' ||
-                startsWith(github.base_ref, 'release/') && 'UAT' ||
-                github.base_ref == 'main' && 'Production'
-              ) ||
-              github.event_name == 'push' && (
-                github.ref == 'refs/heads/develop' && 'develop' ||
-                github.ref == 'refs/heads/test' && 'SIT' ||
-                startsWith(github.ref, 'refs/heads/release/') && 'UAT' ||
-                github.ref == 'refs/heads/main' && 'Production'
-              ) }}
+              github.event_name == 'pull_request' && github.base_ref ||
+              github.event_name == 'push' && github.ref_name }}
     env:
       API_VERSION: ${{ vars.API_VERSION }}
       FROM_TAG: ${{ vars.FROM_TAG }}
@@ -122,10 +112,10 @@ jobs:
       # Deploy or Validate
       - name: Deploy or Validate
         run: |
-          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            ACTION="validate"
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            ACTION="deploy"                 # Always deploy on push
           else
-            ACTION="${{ inputs.ValidateOrDeploy || 'deploy' }}"
+            ACTION="${{ inputs.ValidateOrDeploy || 'validate' }}"  # PRs or manual runs
           fi
           echo "Running $ACTION..."
           bash scripts/pipelines/DeployOrValidateToOrg.sh $ACTION

@@ -121,46 +121,16 @@ jobs:
       - name: Authorize Org
         shell: bash
         env:
+          AESKEY: ${{ secrets.AESKEY }}
+          IVKEY: ${{ secrets.IVKEY }}
+          ENCRIPTED_KEY: ${{ secrets.ENCRIPTED_KEY }}
+          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+          USER_NAME: ${{ secrets.USER_NAME }}
           SANDBOX_NAME: ${{ vars.SANDBOX_NAME }}
           RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
           INSTANCE_URL: ${{ vars.INSTANCE_URL }}
         run: |
-          set -e
-
-          echo "🔐 Authorizing org $SANDBOX_NAME..."
-          # Debug lengths (safe)
-          echo "AESKEY length: ${#AESKEY}"
-          echo "IVKEY length: ${#IVKEY}"
-          echo "ENCRIPTED_KEY length: ${#ENCRIPTED_KEY}"
-          echo "CONSUMER_KEY length: ${#CONSUMER_KEY}"
-          echo "USER_NAME length: ${#USER_NAME}"
-
-          if [[ "$RUNAGAINSTORG" == "false" ]]; then
-            echo "ℹ️ RUNAGAINSTORG=false, skipping org authorization"
-            exit 0
-          fi
-
-          # Decrypt JWT key
-          echo "$ENCRIPTED_KEY" > encrypted_key.txt
-          openssl enc -aes-256-cbc -md sha1 -nosalt -base64 -d \
-            -in encrypted_key.txt \
-            -out server.key \
-            -K "$AESKEY" \
-            -iv "$IVKEY"
-
-          # Authorize org
-          sf org login jwt \
-            -o "$USER_NAME" \
-            -f server.key \
-            -i "$CONSUMER_KEY" \
-            -r "$INSTANCE_URL" \
-            -s \
-            -a "$SANDBOX_NAME"
-
-          echo "✅ Successfully authorized org: $SANDBOX_NAME"
-
-          # Cleanup sensitive files
-          rm -f server.key encrypted_key.txt
+          bash scripts/pipelines/AuthorizeOrg.sh
 
       # Deploy or Validate
       - name: Deploy or Validate

@@ -1,39 +1,43 @@
 #!/bin/bash
-# Srii Seelam 2024-JUN-07 - Updated Authorisation process using JWT Bearer Flow
+# AuthorizeOrg.sh
+# Authorizes a Salesforce org using JWT and AES-encrypted key
 
-#Check if changes need to be run against org
-echo "Authorizing org $SANDBOX_NAME started"
+set -e
+
+# Debug: print lengths of secrets (safe)
+echo "🔐 Authorizing org $SANDBOX_NAME..."
 echo "AESKEY length: ${#AESKEY}"
 echo "IVKEY length: ${#IVKEY}"
-if [[ "$RUNAGAINSTORG" == "false" ]]
-then
-    echo "No changes will be validated/deployed because RUNAGAINSTORG is set to false"
-    exit 1
+echo "ENCRIPTED_KEY length: ${#ENCRIPTED_KEY}"
+echo "CONSUMER_KEY length: ${#CONSUMER_KEY}"
+echo "USER_NAME length: ${#USER_NAME}"
+
+# Skip if RUNAGAINSTORG is false
+if [[ "$RUNAGAINSTORG" == "false" ]]; then
+  echo "ℹ️ RUNAGAINSTORG=false, skipping org authorization"
+  exit 0
 fi
+
+# Write encrypted key to file
 echo "$ENCRIPTED_KEY" > encrypted_key.txt
-# Decrypt JWT key
+
+# Decrypt JWT key using AESKEY and IVKEY
 openssl enc -aes-256-cbc -md sha1 -nosalt -base64 -d \
--in encrypted_key.txt \
--out server.key \
--K "$AESKEY" \
--iv "$IVKEY"
+  -in encrypted_key.txt \
+  -out server.key \
+  -K "$AESKEY" \
+  -iv "$IVKEY"
 
-# Authorize Sandbox environment
+# Authorize Salesforce org using JWT flow
 sf org login jwt \
--o "$USER_NAME" \
--f server.key \
--i "$CONSUMER_KEY" \
--r "$INSTANCE_URL" \
--s \
--a "$SANDBOX_NAME"
+  -o "$USER_NAME" \
+  -f server.key \
+  -i "$CONSUMER_KEY" \
+  -r "$INSTANCE_URL" \
+  -s \s
+  -a "$SANDBOX_NAME"
 
-if [ $? -eq 0 ]; then
-    echo "Successfully authorized the org: $SANDBOX_NAME"
-else
-    echo "Failed to authorize the org. Please check the error above."
-    exit 1
-fi
+echo "✅ Successfully authorized org: $SANDBOX_NAME"
 
-# Remove credentials file
-rm -f ./server.key
-rm -f ./encrypted_key.txt
+# Cleanup sensitive files
+rm -f server.key encrypted_key.txt

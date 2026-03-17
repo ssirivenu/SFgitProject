@@ -121,11 +121,6 @@ jobs:
       - name: Authorize Org
         shell: bash
         env:
-          AESKEY: ${{ secrets.AESKEY }}
-          IVKEY: ${{ secrets.IVKEY }}
-          ENCRIPTED_KEY: ${{ secrets.ENCRIPTED_KEY }}
-          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
-          USER_NAME: ${{ secrets.USER_NAME }}
           SANDBOX_NAME: ${{ vars.SANDBOX_NAME }}
           RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
           INSTANCE_URL: ${{ vars.INSTANCE_URL }}

@@ -56,7 +56,18 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Cache SF CLI plugins
+      - name: Install Salesforce CLI
+        id: install_cli
+        run: |
+          CLI_PATH=~/cli/sf
+          if [ -d "$CLI_PATH" ] && [ -x "$CLI_PATH/bin/sf" ]; then
+            echo "✅ Salesforce CLI already installed"
+          else
+            mkdir -p $CLI_PATH
+            curl -sL "$SF_CLI_URL" | tar xzC $CLI_PATH --strip-components 1
+          fi
+          echo "$CLI_PATH/bin" >> $GITHUB_PATH
+
       - name: Cache Salesforce CLI
         uses: actions/cache@v4
         with:
@@ -64,13 +75,6 @@ jobs:
           key: sf-cli-${{ runner.os }}-v1
           restore-keys: |
             sf-cli-${{ runner.os }}-
-
-      # Install Salesforce CLI
-      - name: Install Salesforce CLI
-        run: |
-          mkdir -p ~/cli/sf
-          curl -sL "$SF_CLI_URL" | tar xzC ~/cli/sf --strip-components 1
-          echo "$HOME/cli/sf/bin" >> $GITHUB_PATH
 
       - name: Verify CLI
         run: sf --version

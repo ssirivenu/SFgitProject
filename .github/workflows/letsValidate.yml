@@ -84,6 +84,7 @@ jobs:
       - name: Install sfdx-git-delta
         run: |
           echo y | sf plugins:install sfdx-git-delta
+          sf plugins
 
       # Generate Delta Package
       - name: Create Delta

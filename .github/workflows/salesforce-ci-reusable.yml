@@ -1,4 +1,4 @@
-name: Manual Deployment
+name: salesforce-ci-reusable
 # This workflow allows manual deployment of changes to a Salesforce org.
 # It is triggered manually and allows the user to specify the environment, test class names, and whether to validate or deploy changes.
 # The workflow uses the sfdx-git-delta plugin to generate a delta of changes and then
@@ -95,6 +95,7 @@ jobs:
           ENCRIPTED_KEY: ${{ secrets.ENCRIPTED_KEY }}
           CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
           USER_NAME: ${{ secrets.USER_NAME }}
+          INSTANCE_URL: ${{vars.INSTANCE_URL}}
         run: bash scripts/pipelines/AuthorizeOrg.sh
       - name: 🚀 Start Action
         run: |

@@ -34,7 +34,6 @@ sf org login jwt \
   -f server.key \
   -i "$CONSUMER_KEY" \
   -r "$INSTANCE_URL" \
-  -s \s
   -a "$SANDBOX_NAME"
 
 echo "✅ Successfully authorized org: $SANDBOX_NAME"

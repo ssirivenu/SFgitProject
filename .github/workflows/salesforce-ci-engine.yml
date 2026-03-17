@@ -101,6 +101,7 @@ jobs:
             exit $PMD_EXIT_CODE
           else
             echo "✅ No PMD violations found"
+          fi
 
       - name: Upload PMD artifact
         if: failure() && steps.Codescan.outcome == 'failure'

@@ -119,17 +119,10 @@ jobs:
       # Deploy or Validate
       - name: Deploy or Validate
         run: |
-<<<<<<< feature/cicd
           if [[ "${{ github.event_name }}" == "push" ]]; then
             ACTION="deploy"                 # Always deploy on push
           else
             ACTION="${{ inputs.ValidateOrDeploy || 'validate' }}"  # PRs or manual runs
-=======
-          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            ACTION="validate"
-          else
-            ACTION="${{ inputs.ValidateOrDeploy || 'deploy' }}"
->>>>>>> develop
           fi
           echo "Running $ACTION..."
           bash scripts/pipelines/DeployOrValidateToOrg.sh $ACTION

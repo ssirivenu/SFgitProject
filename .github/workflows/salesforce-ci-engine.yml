@@ -36,14 +36,8 @@ jobs:
       SANDBOX_NAME: ${{ vars.SANDBOX_NAME }}
       RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
       UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
-      SPECIFIEDTESTS: ${{ inputs.specified_tests || vars.SPECIFIEDTESTS || '' }}
-      INSTANCE_URL: ${{vars.INSTANCE_URL}}
-      USER_NAME: ${{secrets.USER_NAME}}
-      CONSUMER_KEY: ${{secrets.CONSUMER_KEY}}
+      SPECIFIEDTESTS: ${{ inputs.specified_tests || vars.SPECIFIEDTESTS || '' }}  
       SF_CLI_URL: ${{vars.SF_CLI_URL}}
-      AESKEY: ${{secrets.AESKEY}}
-      IVKEY: ${{secrets.IVKEY}}
-      ENCRIPTED_KEY: ${{secrets.ENCRIPTED_KEY}}
 
 
     steps:
@@ -127,6 +121,13 @@ jobs:
           echo "ℹ️ No Apex class changes identified — PMD scan not run" >> $GITHUB_STEP_SUMMARY
 
       - name: Authorize Org
+        env:
+          INSTANCE_URL: ${{vars.INSTANCE_URL}}
+          USER_NAME: ${{secrets.USER_NAME}}
+          CONSUMER_KEY: ${{secrets.CONSUMER_KEY}}
+          AESKEY: ${{secrets.AESKEY}}
+          IVKEY: ${{secrets.IVKEY}}
+          ENCRIPTED_KEY: ${{secrets.ENCRIPTED_KEY}}
         run: |
           bash scripts/pipelines/AuthorizeOrg.sh
 

@@ -30,8 +30,7 @@ on:
   
 jobs:
   ManualDeployment:
-    runs-on:
-      group: salesforce-runners
+    runs-on: ubuntu-latest
     environment:
       name: ${{ inputs.environment }}
     env:

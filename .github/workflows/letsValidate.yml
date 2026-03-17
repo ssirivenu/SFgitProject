@@ -31,14 +31,29 @@ jobs:
 
     permissions:
       contents: read
-
+    
+    environment: 
+      name: ${{ 
+              inputs.environment != '' && inputs.environment ||
+              github.event_name == 'pull_request' && (
+                github.base_ref == 'develop' && 'develop' ||
+                github.base_ref == 'test' && 'SIT' ||
+                startsWith(github.base_ref, 'release/') && 'UAT' ||
+                github.base_ref == 'main' && 'Production'
+              ) ||
+              github.event_name == 'push' && (
+                github.ref == 'refs/heads/develop' && 'develop' ||
+                github.ref == 'refs/heads/test' && 'SIT' ||
+                startsWith(github.ref, 'refs/heads/release/') && 'UAT' ||
+                github.ref == 'refs/heads/main' && 'Production'
+              ) }}
     env:
       API_VERSION: ${{ vars.API_VERSION }}
-      FROM_TAG: HEAD~1
-      TO_TAG: HEAD
+      FROM_TAG: ${{ vars.FROM_TAG }}
+      TO_TAG: ${{ vars.TO_TAG }}
       SANDBOX_NAME: ${{ vars.SANDBOX_NAME }}
       INSTANCE_URL: ${{ vars.INSTANCE_URL }}
-      RUNAGAINSTORG: true
+      RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
       SF_CLI_URL: ${{ vars.SF_CLI_URL }}
 
     steps:
@@ -106,12 +121,12 @@ jobs:
       - name: Deploy or Validate
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            echo "Running validation..."
-            bash scripts/pipelines/DeployOrValidateToOrg.sh validate
+            ACTION="validate"
           else
-            echo "Running deployment..."
-            bash scripts/pipelines/DeployOrValidateToOrg.sh deploy
+            ACTION="${{ inputs.ValidateOrDeploy || 'deploy' }}"
           fi
+          echo "Running $ACTION..."
+          bash scripts/pipelines/DeployOrValidateToOrg.sh $ACTION
 
       - name: Pipeline Summary
         run: |

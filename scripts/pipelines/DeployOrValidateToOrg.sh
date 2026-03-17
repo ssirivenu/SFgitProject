@@ -1,16 +1,18 @@
 #!/bin/bash     
-#Srii Seelam 2025-May-28- Initial Version
 # Deploy or Validate incremental changes to the org
-# Script Arguments:
-# $1 = if null, do actual deployment to Org, else do a validation only
 
+SUMMARY_FILE="$GITHUB_STEP_SUMMARY"
 
 # check if package files have no components to deploy
 if ! grep -q '<types>' ./changedSources/package/package.xml ./changedSources/destructiveChanges/destructiveChanges.xml 
 then 
-    echo "No changes to Deploy. Please deploy any expected changes manually.";exit 0; 
+    echo "No changes to Deploy. Please deploy any expected changes manually."
+    echo "## ⚠️ No Changes Detected" >> $SUMMARY_FILE
+    echo "No components found to deploy." >> $SUMMARY_FILE
+    exit 0
 fi
-echo "" # insert new line
+
+echo ""
 echo "DeployorValidateToOrg.sh argument is: $1"
 echo ""
 
@@ -18,10 +20,10 @@ ACTION=$1
 
 # Determine mode
 if [[ "$ACTION" == "deploy" ]]; then
-  MODE="deploy"
+  MODE="Deploy"
   DRY_RUN=""
 else
-  MODE="validation"
+  MODE="Validation"
   DRY_RUN="--dry-run"
 fi
 
@@ -39,6 +41,10 @@ CMD="sf project deploy start $DRY_RUN --async \
 if [[ "$UNITTESTS_SCOPE" == "RunSpecifiedTests" ]]; then
   if [[ -z "$SPECIFIEDTESTS" ]]; then
     echo "❌ No tests were specified"
+
+    echo "## ❌ $MODE Failed" >> $SUMMARY_FILE
+    echo "No tests were specified while using RunSpecifiedTests." >> $SUMMARY_FILE
+
     exit 1
   fi
 
@@ -52,38 +58,62 @@ fi
 eval "$CMD" > ./changedSources/asyncDeployResults.json
 
 echo ""
-echo "Contents of changedSources/asyncDeployResults.json :"
 cat changedSources/asyncDeployResults.json
 
-# if the package.xml is empty, the pipeline fails
-status="$(cat changedSources/asyncDeployResults.json | jq -r '.status' )"
-result_status="$(cat changedSources/asyncDeployResults.json | jq -r '.result.status')"
-message="$(cat changedSources/asyncDeployResults.json | jq -r '.message')"
-deploymentId="$(cat changedSources/asyncDeployResults.json | jq -r '.result.id')"
+# Extract values
+status=$(jq -r '.status' ./changedSources/asyncDeployResults.json)
+result_status=$(jq -r '.result.status' ./changedSources/asyncDeployResults.json)
+message=$(jq -r '.message' ./changedSources/asyncDeployResults.json)
+deploymentId=$(jq -r '.result.id' ./changedSources/asyncDeployResults.json)
+
 echo ""
 echo "Deployment Id is: $deploymentId"
 echo "status is: $status"
 echo "result_status is: $result_status"
 echo "message is: $message"
 
-# Pipeline passes if there is nothing to deploy and it is not a Pull Request.
-if [[ $status == 1  ]];
-then echo ""; # insert new line after showing contents of package.xml file
-    echo "Deployment initiation failed.Please check deployment error/s in the target org"; exit 1;
+# ❌ Initiation failure
+if [[ $status == 1 ]]; then
+    echo "Deployment initiation failed."
+
+    echo "## ❌ $MODE Failed (Start Phase)" >> $SUMMARY_FILE
+    echo "Message: $message" >> $SUMMARY_FILE
+
+    exit 1
 fi
 
-echo "" #insert new line
+# Wait for completion
 sf project deploy resume -i $deploymentId -w 60
 sf project deploy report -i $deploymentId --json > ./changedSources/deployReport.json
-success="$(cat changedSources/deployReport.json | jq -r '.result.success')"
-echo "" #insert new line
-echo "success is: $success"
-echo "" #insert new line
-#echo "Contents of changedSources/deployReport.json :"
-#cat changedSources/deployReport.json
 
-# if deployment status is 1, deployment has failed and the pipeline should fail
-if [[ $success == "false" ]];
-    then echo "";
-        echo "Deployment failed. Please check deployment error/s in the target org."; exit 1;
+success=$(jq -r '.result.success' ./changedSources/deployReport.json)
+
+echo ""
+echo "success is: $success"
+
+# ❌ Deployment failure
+if [[ "$success" == "false" ]]; then
+    echo "Deployment failed."
+
+    echo "## ❌ $MODE Failed" >> $SUMMARY_FILE
+    echo "" >> $SUMMARY_FILE
+
+    echo "### 🔴 Component Errors" >> $SUMMARY_FILE
+    echo '```' >> $SUMMARY_FILE
+    jq -r '.result.details.componentFailures[]?.problem // empty' ./changedSources/deployReport.json >> $SUMMARY_FILE
+    echo '```' >> $SUMMARY_FILE
+
+    echo "### 🧪 Test Failures" >> $SUMMARY_FILE
+    echo '```' >> $SUMMARY_FILE
+    jq -r '.result.details.runTestResult.failures[]?.message // empty' ./changedSources/deployReport.json >> $SUMMARY_FILE
+    echo '```' >> $SUMMARY_FILE
+
+    exit 1
 fi
+
+# ✅ Success
+echo "Deployment succeeded."
+
+echo "## ✅ $MODE Succeeded" >> $SUMMARY_FILE
+echo "- Org: $SANDBOX_NAME" >> $SUMMARY_FILE
+echo "- Deployment Id: $deploymentId" >> $SUMMARY_FILE

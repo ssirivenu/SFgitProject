@@ -53,14 +53,20 @@ jobs:
           fetch-depth: 0
 
       # Install Salesforce CLI & sfdx-git-delta plugin
+      # Install Node.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Install pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      # Install Salesforce CLI via pnpm
       - name: Install Salesforce CLI
-        run: |
-          set -e
-          echo "📥 Downloading Salesforce CLI from $SF_CLI_URL..."
-          mkdir -p ~/cli/sf
-          curl -sL "$SF_CLI_URL" | tar xzC ~/cli/sf --strip-components 1
-          echo "$HOME/cli/sf/bin" >> $GITHUB_PATH
-          echo "✅ Salesforce CLI installed successfully"
+        run: pnpm add -g @salesforce/cli@2.127.2
+
       - name: Verify Salesforce CLI
         run: sf --version
       - name: Install sfdx-git-delta

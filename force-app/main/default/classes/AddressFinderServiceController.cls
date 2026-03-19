@@ -139,7 +139,7 @@ public with sharing class AddressFinderServiceController {
     }
 
     /**
-     * Provides a derived suburb based on the version of the address selected (physical vs postal)
+     * Provides a derived suburb based on the versisadson of the address selected (physical vs postal)
      * 
      * @param metadata The metadata of the selected address in address finder metadata call.
      * @param version The version of the address (physical vs postal).

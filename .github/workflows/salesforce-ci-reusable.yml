@@ -63,6 +63,14 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
+      # ✅ Fix: Setup pnpm global bin
+      - name: Setup pnpm environment
+        run: |
+          pnpm setup
+          echo "PNPM_HOME=$HOME/.local/share/pnpm" >> $GITHUB_ENV
+          echo "$HOME/.local/share/pnpm" >> $GITHUB_PATH
+
+
       # Install Salesforce CLI via pnpm
       - name: Install Salesforce CLI
         run: pnpm add -g @salesforce/cli@2.127.2

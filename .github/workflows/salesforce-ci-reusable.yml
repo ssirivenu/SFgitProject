@@ -48,7 +48,7 @@ jobs:
     steps:
       # checkout Source
       - name: 'Checkout source code'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v${{vars.CHECKOUTSOURCE_VERSION}}
         with:
           fetch-depth: 0
 

@@ -5,7 +5,7 @@ name: salesforce-ci-reusable
 # deploys or validates those changes against the specified Salesforce org.
 
 on:
-  workflow_dispatch:  # Allows manual triggering of the workflow
+  workflow_dispatch:  # Allows manual triggering of the workflow salesforce-ci-reusable
     inputs:
         environment:
           description: 'Environment to run tests against'

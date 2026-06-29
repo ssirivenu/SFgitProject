@@ -113,8 +113,10 @@ jobs:
           USER_NAME: ${{ secrets.USER_NAME }}
           INSTANCE_URL: ${{vars.INSTANCE_URL}}
           SF_LOG_LEVEL: debug
+          DEBUG: '*'
         run: bash scripts/pipelines/AuthorizeOrg.sh
           
       - name: 🚀 Start Action
         run: |
+          export SF_LOG_LEVEL=debug
           bash scripts/pipelines/DeployOrValidateToOrg.sh ${{ inputs.action_type}}

@@ -112,7 +112,9 @@ jobs:
           CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
           USER_NAME: ${{ secrets.USER_NAME }}
           INSTANCE_URL: ${{vars.INSTANCE_URL}}
+          SF_LOG_LEVEL: debug
         run: bash scripts/pipelines/AuthorizeOrg.sh
+          
       - name: 🚀 Start Action
         run: |
           bash scripts/pipelines/DeployOrValidateToOrg.sh ${{ inputs.action_type}}

@@ -114,7 +114,9 @@ jobs:
           INSTANCE_URL: ${{vars.INSTANCE_URL}}
           #SF_LOG_LEVEL: debug
           #DEBUG: '*'
-        run: bash scripts/pipelines/AuthorizeOrg.sh
+        run: |
+          export SF_LOG_LEVEL=debug
+          bash scripts/pipelines/AuthorizeOrg.sh
           
       - name: 🚀 Start Action
         run: |

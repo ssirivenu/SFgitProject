@@ -40,6 +40,7 @@ set -x
 
 SOURCE_ARGS=()
 while IFS= read -r path; do
+    path="${path//$'\r'/}"
     [ -n "$path" ] && SOURCE_ARGS+=(-s "$path")
 done <<< "$IGNORE_PATHS"
 

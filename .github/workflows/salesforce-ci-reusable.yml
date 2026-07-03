@@ -45,7 +45,7 @@ jobs:
         UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
         SPECIFIEDTESTS: ${{ vars.SPECIFIEDTESTS}}
         SF_CLI_URL: ${{ vars.SF_CLI_URL }}
-        IGNORE_PATHS: ${{vars.IGNORE_PATHS}}
+        IGNORE_PATHS: "${{vars.IGNORE_PATHS}}"
     steps:
       # checkout Source
       - name: 'Checkout source code'

@@ -37,7 +37,7 @@ echo "For Deployment - Contents of changedSources/package/package.xml with ignor
 cat changedSources/package/package.xml
 
 set -x
-sf sgd source delta -f $FROM_TAG -t $TO_TAG -o changedSources -s "${IGNORE_PATHS//$'\n'/-s }" -a $API_VERSION
+sf sgd source delta -f $FROM_TAG -t $TO_TAG -o changedSources -s ${IGNORE_PATHS//$'\n'/-s } -a $API_VERSION
 set +x
 echo "" # insert new line
 echo "For Deployment - Contents of changedSources/package/package.xml with only ignore paths:"

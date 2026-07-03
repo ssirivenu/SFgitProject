@@ -24,23 +24,10 @@ echo "" # insert new line
 # Script Arguments:
 # $1 = if null, do actual deployment to Org, else do a validation only
 
-# Create folder to store the Increment/ Changes 
-mkdir changedSources
-# Get Delta using the Sf git delta plugin 
-echo "" # insert new line
-#echo "FROM_TAG: $FROM_TAG" # if commented, HEAD~1 is used as the from commit
-sf sgd source delta -f $FROM_TAG -t $TO_TAG -o changedSources --generate-delta -i .forceignore -a $API_VERSION
-#sf sgd source delta -f HEAD~1 -t HEAD -o "changedSources" -i .forceignore -a $API_VERSION
-echo "" # insert new line
-echo "For Deployment - Contents of changedSources/package/package.xml:"
-cat changedSources/package/package.xml
-echo "" # insert new line
-echo "Destructive Changes in changedSources/destructiveChanges/destructiveChanges.xml:"
-cat changedSources/destructiveChanges/destructiveChanges.xml
-echo "" # insert new line
 
 IGNORE_FILE="./ignorefolders"
 # Write auth file safely
+echo $IGNORE_PATHS
 printf '%s' "$IGNORE_PATHS" > "$IGNORE_FILE"
 echo "For Deployment - Contents of Ignorefile"
 cat $IGNORE_FILE

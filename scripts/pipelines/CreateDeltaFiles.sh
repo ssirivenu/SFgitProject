@@ -35,10 +35,11 @@ sf sgd source delta -f $FROM_TAG -t $TO_TAG -o changedSources --generate-delta -
 echo "" # insert new line
 echo "For Deployment - Contents of changedSources/package/package.xml with ignore file:"
 cat changedSources/package/package.xml
-echo ${IGNORE_PATHS//$'\n'/-s }
+
 set -x
 sf sgd source delta -f $FROM_TAG -t $TO_TAG -o changedSources -s "${IGNORE_PATHS//$'\n'/-s }" -a $API_VERSION
 set +x
 echo "" # insert new line
 echo "For Deployment - Contents of changedSources/package/package.xml with only ignore paths:"
 cat changedSources/package/package.xml
+echo ${IGNORE_PATHS//$'\n'/-s}

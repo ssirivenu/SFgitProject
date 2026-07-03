@@ -37,9 +37,25 @@ echo "For Deployment - Contents of changedSources/package/package.xml with ignor
 cat changedSources/package/package.xml
 
 set -x
-sf sgd source delta -f $FROM_TAG -t $TO_TAG -o changedSources -s ${IGNORE_PATHS//$'\n'/-s } -a $API_VERSION
+
+SOURCE_ARGS=()
+while IFS= read -r path; do
+    [ -n "$path" ] && SOURCE_ARGS+=(-s "$path")
+done <<< "$IGNORE_PATHS"
+
+echo "Generated source arguments:"
+printf '%q ' "${SOURCE_ARGS[@]}"
+echo
+
+sf sgd source delta \
+    -f "$FROM_TAG" \
+    -t "$TO_TAG" \
+    -o changedSources \
+    "${SOURCE_ARGS[@]}" \
+    -a "$API_VERSION"
+
 set +x
-echo "" # insert new line
-echo "For Deployment - Contents of changedSources/package/package.xml with only ignore paths:"
+
+echo
+echo "For Deployment - Contents of changedSources/package/package.xml:"
 cat changedSources/package/package.xml
-echo "${IGNORE_PATHS//$'\n'/-s}"

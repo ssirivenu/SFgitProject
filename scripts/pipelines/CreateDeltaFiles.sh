@@ -27,10 +27,10 @@ echo "" # insert new line
 
 IGNORE_FILE="./ignorefolders"
 # Write auth file safely
-echo $IGNORE_PATHS
+echo "$IGNORE_PATHS"
 printf '%s' "$IGNORE_PATHS" > "$IGNORE_FILE"
 echo "For Deployment - Contents of Ignorefile"
-cat $IGNORE_FILE
+cat "$IGNORE_FILE"
 sf sgd source delta -f $FROM_TAG -t $TO_TAG -o changedSources --generate-delta -i $IGNORE_FILE -a $API_VERSION
 echo "" # insert new line
 echo "For Deployment - Contents of changedSources/package/package.xml with ignore file:"
@@ -42,4 +42,4 @@ set +x
 echo "" # insert new line
 echo "For Deployment - Contents of changedSources/package/package.xml with only ignore paths:"
 cat changedSources/package/package.xml
-echo ${IGNORE_PATHS//$'\n'/-s}
+echo "${IGNORE_PATHS//$'\n'/-s}"

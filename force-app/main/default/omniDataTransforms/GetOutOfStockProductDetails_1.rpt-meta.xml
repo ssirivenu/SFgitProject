@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniDataTransform xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <assignmentRulesUsed>false</assignmentRulesUsed>
+    <deletedOnSuccess>false</deletedOnSuccess>
+    <errorIgnored>false</errorIgnored>
+    <expectedInputJson>{
+  &quot;result&quot; : [ {
+    &quot;displayUrl&quot; : &quot;/resource/ABClearTipSheaths&quot;,
+    &quot;defaultPrice&quot; : 9.2,
+    &quot;productCode&quot; : &quot;AB Clear Tip Sheaths (x50)&quot;,
+    &quot;name&quot; : &quot;AB Clear Tip Sheaths (x50)&quot;,
+    &quot;id&quot; : &quot;01tBn00000BzcvnIAB&quot;,
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZSBn0000007vcfOAA&quot;,
+      &quot;eligiblePromotions&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;name&quot; : &quot;AB DIY&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;id&quot; : &quot;0ZGBn0000009XhYOAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;prices&quot; : [ {
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      },
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;price&quot; : 9.2,
+      &quot;isSelected&quot; : false,
+      &quot;priceBookEntryId&quot; : &quot;01uBn000003KXBEIA4&quot;
+    } ],
+    &quot;InStock__c&quot; : true
+  }, {
+    &quot;displayUrl&quot; : &quot;/resource/ABGreenTipSheaths&quot;,
+    &quot;defaultPrice&quot; : 8.5,
+    &quot;productCode&quot; : &quot;AB Green Tip Sheaths (x50)&quot;,
+    &quot;name&quot; : &quot;AB Green Tip Sheaths (x50)&quot;,
+    &quot;id&quot; : &quot;01tBn00000BzFApIAN&quot;,
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZSBn0000007vcfOAA&quot;,
+      &quot;eligiblePromotions&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;name&quot; : &quot;AB DIY&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;id&quot; : &quot;0ZGBn0000009XhYOAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;prices&quot; : [ {
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      },
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;price&quot; : 8.5,
+      &quot;isSelected&quot; : false,
+      &quot;priceBookEntryId&quot; : &quot;01uBn000003KXCCIA4&quot;
+    } ],
+    &quot;InStock__c&quot; : true
+  }, {
+    &quot;displayUrl&quot; : &quot;/resource/AbInseminationGloves&quot;,
+    &quot;defaultPrice&quot; : 33,
+    &quot;productCode&quot; : &quot;AB Insemination Gloves (x50)&quot;,
+    &quot;name&quot; : &quot;AB Insemination Gloves (x50)&quot;,
+    &quot;id&quot; : &quot;01tBn00000BzcwNIAR&quot;,
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZSBn0000007vcfOAA&quot;,
+      &quot;eligiblePromotions&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;name&quot; : &quot;AB DIY&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;id&quot; : &quot;0ZGBn0000009XhYOAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;prices&quot; : [ {
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      },
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;price&quot; : 33,
+      &quot;isSelected&quot; : false,
+      &quot;priceBookEntryId&quot; : &quot;01uBn000003KXBKIA4&quot;
+    } ],
+    &quot;InStock__c&quot; : false
+  }, {
+    &quot;displayUrl&quot; : &quot;/resource/ABInseminationWipes&quot;,
+    &quot;defaultPrice&quot; : 15,
+    &quot;productCode&quot; : &quot;AB Insemination Wipes (x100)&quot;,
+    &quot;name&quot; : &quot;AB Insemination Wipes (x100)&quot;,
+    &quot;id&quot; : &quot;01tBn00000BzFBdIAN&quot;,
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZSBn0000007vcfOAA&quot;,
+      &quot;eligiblePromotions&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;name&quot; : &quot;AB DIY&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;id&quot; : &quot;0ZGBn0000009XhYOAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;prices&quot; : [ {
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      },
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;price&quot; : 15,
+      &quot;isSelected&quot; : false,
+      &quot;priceBookEntryId&quot; : &quot;01uBn000003KXBzIAO&quot;
+    } ],
+    &quot;InStock__c&quot; : true
+  }, {
+    &quot;displayUrl&quot; : &quot;/resource/ABLubricant&quot;,
+    &quot;defaultPrice&quot; : 18,
+    &quot;productCode&quot; : &quot;AB Lubricant (2ltr)&quot;,
+    &quot;name&quot; : &quot;AB Lubricant (2ltr)&quot;,
+    &quot;id&quot; : &quot;01tBn00000BzcwcIAB&quot;,
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZSBn0000007vcfOAA&quot;,
+      &quot;eligiblePromotions&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;name&quot; : &quot;AB DIY&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;id&quot; : &quot;0ZGBn0000009XhYOAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;prices&quot; : [ {
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      },
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;price&quot; : 18,
+      &quot;isSelected&quot; : false,
+      &quot;priceBookEntryId&quot; : &quot;01uBn000003KXBqIAO&quot;
+    } ],
+    &quot;InStock__c&quot; : true
+  }, {
+    &quot;displayUrl&quot; : &quot;/resource/ABScissor&quot;,
+    &quot;defaultPrice&quot; : 12.2,
+    &quot;productCode&quot; : &quot;AB Scissor&quot;,
+    &quot;name&quot; : &quot;AB Scissor&quot;,
+    &quot;id&quot; : &quot;01tBn00000BzFAbIAN&quot;,
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZSBn0000007vcfOAA&quot;,
+      &quot;eligiblePromotions&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;name&quot; : &quot;AB DIY&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;id&quot; : &quot;0ZGBn0000009XhYOAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;prices&quot; : [ {
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      },
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;price&quot; : 12.2,
+      &quot;isSelected&quot; : false,
+      &quot;priceBookEntryId&quot; : &quot;01uBn000003KXBaIAO&quot;
+    } ],
+    &quot;InStock__c&quot; : true
+  }, {
+    &quot;displayUrl&quot; : &quot;/resource/ABStainlessSteelInseminator&quot;,
+    &quot;defaultPrice&quot; : 99,
+    &quot;productCode&quot; : &quot;AB Stainless Steel Inseminator&quot;,
+    &quot;name&quot; : &quot;AB Stainless Steel Inseminator&quot;,
+    &quot;id&quot; : &quot;01tBn00000BzFAIIA3&quot;,
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZSBn0000007vcfOAA&quot;,
+      &quot;eligiblePromotions&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;name&quot; : &quot;AB DIY&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;id&quot; : &quot;0ZGBn0000009XhYOAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;prices&quot; : [ {
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      },
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;price&quot; : 99,
+      &quot;isSelected&quot; : false,
+      &quot;priceBookEntryId&quot; : &quot;01uBn000003KXC3IAO&quot;
+    } ],
+    &quot;InStock__c&quot; : true
+  }, {
+    &quot;displayUrl&quot; : &quot;/resource/ABTweezer&quot;,
+    &quot;defaultPrice&quot; : 15.6,
+    &quot;productCode&quot; : &quot;AB Tweezer&quot;,
+    &quot;name&quot; : &quot;AB Tweezer&quot;,
+    &quot;id&quot; : &quot;01tBn00000BzFAdIAN&quot;,
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZSBn0000007vcfOAA&quot;,
+      &quot;eligiblePromotions&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;name&quot; : &quot;AB DIY&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;id&quot; : &quot;0ZGBn0000009XhYOAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;prices&quot; : [ {
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      },
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;price&quot; : 15.6,
+      &quot;isSelected&quot; : false,
+      &quot;priceBookEntryId&quot; : &quot;01uBn000003KXCPIA4&quot;
+    } ],
+    &quot;InStock__c&quot; : true
+  }, {
+    &quot;displayUrl&quot; : &quot;/resource/AllflexAngusAndBeefprintPack&quot;,
+    &quot;defaultPrice&quot; : 7.35,
+    &quot;productCode&quot; : &quot;Allflex Angus and Beefprint Pack&quot;,
+    &quot;name&quot; : &quot;Allflex Angus and Beefprint Pack&quot;,
+    &quot;id&quot; : &quot;01tBn00000BzFBiIAN&quot;,
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZSBn0000007vcfOAA&quot;,
+      &quot;eligiblePromotions&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;name&quot; : &quot;AllFlex&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;parentCategoryId&quot; : &quot;0ZGBn0000009XhtOAE&quot;,
+      &quot;id&quot; : &quot;0ZGBn0000009XhqOAE&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZSBn0000007vcfOAA&quot;,
+      &quot;eligiblePromotions&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;id&quot; : &quot;0ZGBn0000009XheOAE&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZSBn0000007vcfOAA&quot;,
+      &quot;eligiblePromotions&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;name&quot; : &quot;Beef&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;parentCategoryId&quot; : &quot;0ZGBn0000009XheOAE&quot;,
+      &quot;id&quot; : &quot;0ZGBn0000009XhtOAE&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;prices&quot; : [ {
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      },
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;price&quot; : 7.35,
+      &quot;isSelected&quot; : false,
+      &quot;priceBookEntryId&quot; : &quot;01uBn000003KXCJIA4&quot;
+    } ],
+    &quot;InStock__c&quot; : true
+  } ]
+}</expectedInputJson>
+    <fieldLevelSecurityEnabled>true</fieldLevelSecurityEnabled>
+    <inputType>JSON</inputType>
+    <isManagedUsingStdDesigner>true</isManagedUsingStdDesigner>
+    <name>GetOutOfStockProductDetails</name>
+    <nullInputsIncludedInOutput>false</nullInputsIncludedInOutput>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>95ebeb9b-ef2a-4aa1-873d-03b180da6f53</globalKey>
+        <inputFieldName>ProductRule:EndDate__c</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>GetOutOfStockProductDetails</name>
+        <omniDataTransformation>0kd9j000001gv7y</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001gv7y</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>ProductRule:EndDate</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <filterOperator>=</filterOperator>
+        <filterValue>&apos;true&apos;</filterValue>
+        <globalKey>69af5999-6be8-4c3c-8a66-ba5c6a46154e</globalKey>
+        <inputFieldName>Active__c</inputFieldName>
+        <inputObjectName>ProductRule__c</inputObjectName>
+        <inputObjectQuerySequence>1.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>GetOutOfStockProductDetails</name>
+        <omniDataTransformation>0kd9j000001gv7z</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001gv7z</omniDataTransformationId>
+        <outputCreationSequence>0.0</outputCreationSequence>
+        <outputFieldName>ProductRule</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <filterOperator>=</filterOperator>
+        <filterValue>result:id</filterValue>
+        <globalKey>f6278443-8806-451b-b261-31a4dfd9235f</globalKey>
+        <inputFieldName>Product__c</inputFieldName>
+        <inputObjectName>ProductRule__c</inputObjectName>
+        <inputObjectQuerySequence>1.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>GetOutOfStockProductDetails</name>
+        <omniDataTransformation>0kd9j000001gv7w</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001gv7w</omniDataTransformationId>
+        <outputCreationSequence>0.0</outputCreationSequence>
+        <outputFieldName>ProductRule</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>f91836ce-f56f-4206-96d8-23a6d24bcc9e</globalKey>
+        <inputFieldName>ProductRule:StartDate__c</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>GetOutOfStockProductDetails</name>
+        <omniDataTransformation>0kd9j000001gv7x</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001gv7x</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>ProductRule:StartDate</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>b4e3a7af-c0f7-4136-8482-816b2df5e5e4</globalKey>
+        <inputFieldName>ProductRule:Behaviour__c</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>GetOutOfStockProductDetails</name>
+        <omniDataTransformation>0kd9j000001gv86</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001gv86</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>ProductRule:Behaviour</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>33312d90-5710-4ef7-8a90-2e2c7bf6c14a</globalKey>
+        <inputFieldName>ProductRule:Active__c</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>GetOutOfStockProductDetails</name>
+        <omniDataTransformation>0kd9j000001gv84</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001gv84</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>ProductRule:Active</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>4e0b5f25-9b32-4884-885b-03481edc834e</globalKey>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>GetOutOfStockProductDetails</name>
+        <omniDataTransformation>0kd9j000001gv85</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001gv85</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldFormat>List&lt;Map&gt;</outputFieldFormat>
+        <outputFieldName>ProductRule</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>be2ba10a-12a4-49d1-9ead-c2df9c6c807a</globalKey>
+        <inputFieldName>ProductRule:Product__c</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>GetOutOfStockProductDetails</name>
+        <omniDataTransformation>0kd9j000001gv82</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001gv82</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>ProductRule:id</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>aafd780d-df2e-4fa3-88c4-688e7c4b4cee</globalKey>
+        <inputFieldName>ProductRule:Id</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>GetOutOfStockProductDetails</name>
+        <omniDataTransformation>0kd9j000001gv83</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001gv83</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>ProductRule:ProductRuleId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <filterOperator>=</filterOperator>
+        <filterValue>&quot;Product Out of Stock&quot;</filterValue>
+        <globalKey>48f8e6dd-3cbd-4f4c-94f2-a5bc0abf6c6b</globalKey>
+        <inputFieldName>Behaviour__c</inputFieldName>
+        <inputObjectName>ProductRule__c</inputObjectName>
+        <inputObjectQuerySequence>1.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>GetOutOfStockProductDetails</name>
+        <omniDataTransformation>0kd9j000001gv80</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001gv80</omniDataTransformationId>
+        <outputCreationSequence>0.0</outputCreationSequence>
+        <outputFieldName>ProductRule</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>d533abe1-8dc6-4906-9215-d8cdaed7ee71</globalKey>
+        <inputFieldName>ProductRule:Name</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>GetOutOfStockProductDetails</name>
+        <omniDataTransformation>0kd9j000001gv81</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001gv81</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>ProductRule:Name</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <outputType>JSON</outputType>
+    <previewJsonData>{
+  &quot;apiStatus&quot; : {
+    &quot;statusCode&quot; : &quot;FetchedDetailsSuccessfully&quot;,
+    &quot;messages&quot; : [ ]
+  },
+  &quot;ProductRule&quot; : &quot;&quot;,
+  &quot;correlationId&quot; : &quot;c6a7db69-2aee-43be-91ba-b5d569e7bd2c&quot;,
+  &quot;contextId&quot; : &quot;0000000l22tp27e0025177268048125597735474d15f459e85d94b7eaabb2700&quot;,
+  &quot;result&quot; : {
+    &quot;variationAttributeSet&quot; : null,
+    &quot;unitOfMeasure&quot; : null,
+    &quot;status&quot; : null,
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    },
+    &quot;productType&quot; : null,
+    &quot;productSpecificationType&quot; : null,
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;status&quot; : &quot;Active&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;doesAutoRenewByDefault&quot; : false
+      },
+      &quot;productId&quot; : &quot;01tBn00000BzcwNIAR&quot;,
+      &quot;isDefault&quot; : true,
+      &quot;id&quot; : &quot;0iOBn0000000f9AMAQ&quot;
+    } ],
+    &quot;productRelatedComponent&quot; : null,
+    &quot;productQuantity&quot; : null,
+    &quot;productPricingInformation&quot; : null,
+    &quot;productInformation&quot; : null,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productCode&quot; : &quot;AB Insemination Gloves (x50)&quot;,
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11BBn000008uqxJMAQ&quot;
+    },
+    &quot;productClass&quot; : null,
+    &quot;prices&quot; : [ {
+      &quot;pricingModel&quot; : {
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;
+      },
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;priceBookEntryId&quot; : &quot;01uBn000003KXBKIA4&quot;,
+      &quot;price&quot; : 33,
+      &quot;isSelected&quot; : false,
+      &quot;isDerived&quot; : false,
+      &quot;isDefault&quot; : true
+    } ],
+    &quot;nodeType&quot; : &quot;simpleProduct&quot;,
+    &quot;name&quot; : &quot;AB Insemination Gloves (x50)&quot;,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;isQuantityEditable&quot; : null,
+    &quot;isDefaultComponent&quot; : null,
+    &quot;isComponentRequired&quot; : null,
+    &quot;isAssetizable&quot; : false,
+    &quot;isActive&quot; : true,
+    &quot;id&quot; : &quot;01tBn00000BzcwNIAR&quot;,
+    &quot;endOfLifeDate&quot; : null,
+    &quot;displayUrl&quot; : &quot;/resource/AbInseminationGloves&quot;,
+    &quot;discontinuedDate&quot; : null,
+    &quot;description&quot; : &quot;Full length plastic disposable gloves used for Artificial Breeding.\n\n==External Description==\nFull length plastic disposable gloves used for Artificial Breeding.&quot;,
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;childVariationIds&quot; : [ ],
+    &quot;childProducts&quot; : [ ],
+    &quot;catalogs&quot; : [ ],
+    &quot;availabilityDate&quot; : null,
+    &quot;attributes&quot; : [ {
+      &quot;status&quot; : &quot;Inactive&quot;,
+      &quot;name&quot; : &quot;Under 35 Days Dry TSU&quot;,
+      &quot;label&quot; : &quot;Under 35 Days Dry TSU&quot;,
+      &quot;isRequired&quot; : false,
+      &quot;isReadOnly&quot; : false,
+      &quot;isPriceImpacting&quot; : true,
+      &quot;isConfigurable&quot; : false,
+      &quot;isCloneable&quot; : false,
+      &quot;id&quot; : &quot;0tjBn00000003sLIAQ&quot;,
+      &quot;hidden&quot; : true,
+      &quot;developerName&quot; : &quot;Under_35_Days_Dry_TSU1&quot;,
+      &quot;defaultValue&quot; : &quot;false&quot;,
+      &quot;dataType&quot; : &quot;CHECKBOX&quot;,
+      &quot;code&quot; : &quot;Under 35 Days Dry TSU&quot;,
+      &quot;attributeNameOverride&quot; : &quot;Under 35 Days Dry TSU&quot;,
+      &quot;attributeCategoryId&quot; : &quot;Uncategorized&quot;,
+      &quot;additionalFields&quot; : { }
+    } ],
+    &quot;attributeCategories&quot; : [ ],
+    &quot;additionalFields&quot; : {
+      &quot;Management_Number_Applicable__c&quot; : false,
+      &quot;InStock__c&quot; : false,
+      &quot;Replacement_EID_Applicable__c&quot; : false,
+      &quot;BID_Number_Applicable__c&quot; : false,
+      &quot;ExternalDescription__c&quot; : &quot;&amp;lt;p&amp;gt;Full length plastic disposable gloves used for Artificial Breeding.&amp;lt;/p&amp;gt;&quot;,
+      &quot;LICRestrictedProduct__c&quot; : false,
+      &quot;EarTag_Pricing_Enabled__c&quot; : false,
+      &quot;MindaRestrictedProduct__c&quot; : false
+    }
+  }
+}</previewJsonData>
+    <processSuperBulk>false</processSuperBulk>
+    <responseCacheTtlMinutes>0.0</responseCacheTtlMinutes>
+    <rollbackOnError>false</rollbackOnError>
+    <sourceObjectDefault>false</sourceObjectDefault>
+    <synchronousProcessThreshold>0.0</synchronousProcessThreshold>
+    <type>Extract</type>
+    <uniqueName>GetOutOfStockProductDetails_1</uniqueName>
+    <versionNumber>1.0</versionNumber>
+    <xmlDeclarationRemoved>false</xmlDeclarationRemoved>
+</OmniDataTransform>

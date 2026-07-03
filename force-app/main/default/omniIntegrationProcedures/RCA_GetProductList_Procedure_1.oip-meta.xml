@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniIntegrationProcedure xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <isActive>false</isActive>
+    <isIntegProcdSignatureAvl>false</isIntegProcdSignatureAvl>
+    <isIntegrationProcedure>false</isIntegrationProcedure>
+    <isManagedUsingStdDesigner>false</isManagedUsingStdDesigner>
+    <isMetadataCacheDisabled>false</isMetadataCacheDisabled>
+    <isOmniScriptEmbeddable>false</isOmniScriptEmbeddable>
+    <isTestProcedure>false</isTestProcedure>
+    <isWebCompEnabled>false</isWebCompEnabled>
+    <language xsi:nil="true"/>
+    <name xsi:nil="true"/>
+    <omniProcessType xsi:nil="true"/>
+    <subType xsi:nil="true"/>
+    <type xsi:nil="true"/>
+    <uniqueName xsi:nil="true"/>
+    <versionNumber>0.0</versionNumber>
+</OmniIntegrationProcedure>

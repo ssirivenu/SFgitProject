@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniDataTransform xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <assignmentRulesUsed>false</assignmentRulesUsed>
+    <deletedOnSuccess>false</deletedOnSuccess>
+    <errorIgnored>false</errorIgnored>
+    <expectedInputJson>{
+  &quot;transactionId&quot; : &quot;8019j000011IPoFAAW&quot;,
+  &quot;transactionLineId&quot; : &quot;ref_ad18cee3_ac6f_4598_9d18_d165297227c8&quot;,
+  &quot;transactionContextId&quot; : &quot;&quot;,
+  &quot;addedNodes&quot; : [ {
+    &quot;path&quot; : [ &quot;8019j000011IPoFAAW&quot;, &quot;ref_ad18cee3_ac6f_4598_9d18_d165297227c8&quot; ],
+    &quot;addedObject&quot; : {
+      &quot;Product&quot; : &quot;01t9j000008fYdtAAE&quot;,
+      &quot;ProductCode&quot; : &quot;AB Clear Tip Sheaths (x50)&quot;,
+      &quot;ProductName&quot; : &quot;AB Clear Tip Sheaths (x50)&quot;,
+      &quot;ProductBasedOn&quot; : null,
+      &quot;id&quot; : &quot;ref_ad18cee3_ac6f_4598_9d18_d165297227c8&quot;,
+      &quot;PricebookEntry&quot; : &quot;01u9j000004I7WzAAK&quot;,
+      &quot;ProductSellingModel&quot; : &quot;0jP9j00000000KzEAI&quot;,
+      &quot;SellingModelType&quot; : &quot;OneTime&quot;,
+      &quot;SubscriptionTerm&quot; : null,
+      &quot;PricingTermUnit&quot; : null,
+      &quot;UnitPrice&quot; : 9.2,
+      &quot;Quantity&quot; : 1,
+      &quot;businessObjectType&quot; : &quot;OrderItem&quot;,
+      &quot;SalesTransactionItemSource&quot; : &quot;ref_ad18cee3_ac6f_4598_9d18_d165297227c8&quot;,
+      &quot;SalesTransactionItemParent&quot; : &quot;8019j000011IPoFAAW&quot;
+    }
+  } ],
+  &quot;updatedNodes&quot; : [ {
+    &quot;path&quot; : [ &quot;0Q0DE000000ISHJs81&quot;, &quot;0QLDE000000IBXw4AO&quot; ],
+    &quot;updatedAttributes&quot; : {
+      &quot;Quantity&quot; : 5
+    }
+  } ],
+  &quot;deletedNodes&quot; : [ {
+    &quot;path&quot; : [ &quot;0Q0DE000000ISHJs81&quot;, &quot;0QLDE000000IBXw4AO&quot; ]
+  } ],
+  &quot;correlationId&quot; : &quot;1c974e82_ec74_4568_85f0_424875a2e13d&quot;,
+  &quot;configuratorOptions&quot; : {
+    &quot;executePricing&quot; : false,
+    &quot;qualifyAllProductsInTransaction&quot; : false,
+    &quot;validateProductCatalog&quot; : true,
+    &quot;validateAmendRenewCancel&quot; : true,
+    &quot;executeConfigurationRules&quot; : true,
+    &quot;returnProductCatalogData&quot; : true,
+    &quot;addDefaultConfiguration&quot; : true
+  }
+}</expectedInputJson>
+    <expectedOutputJson>{
+  &quot;transactionId&quot; : &quot;8019j000011IPoFAAW&quot;,
+  &quot;transactionLineId&quot; : &quot;ref_ad18cee3_ac6f_4598_9d18_d165297227c8&quot;,
+  &quot;transactionContextId&quot; : &quot;&quot;,
+  &quot;addedNodes&quot; : [ {
+    &quot;path&quot; : [ &quot;8019j000011IPoFAAW&quot;, &quot;ref_ad18cee3_ac6f_4598_9d18_d165297227c8&quot; ],
+    &quot;addedObject&quot; : {
+      &quot;Product&quot; : &quot;01t9j000008fYdtAAE&quot;,
+      &quot;ProductCode&quot; : &quot;AB Clear Tip Sheaths (x50)&quot;,
+      &quot;ProductName&quot; : &quot;AB Clear Tip Sheaths (x50)&quot;,
+      &quot;ProductBasedOn&quot; : null,
+      &quot;id&quot; : &quot;ref_ad18cee3_ac6f_4598_9d18_d165297227c8&quot;,
+      &quot;PricebookEntry&quot; : &quot;01u9j000004I7WzAAK&quot;,
+      &quot;ProductSellingModel&quot; : &quot;0jP9j00000000KzEAI&quot;,
+      &quot;SellingModelType&quot; : &quot;OneTime&quot;,
+      &quot;SubscriptionTerm&quot; : null,
+      &quot;PricingTermUnit&quot; : null,
+      &quot;UnitPrice&quot; : 9.2,
+      &quot;Quantity&quot; : 1,
+      &quot;businessObjectType&quot; : &quot;OrderItem&quot;,
+      &quot;SalesTransactionItemSource&quot; : &quot;ref_ad18cee3_ac6f_4598_9d18_d165297227c8&quot;,
+      &quot;SalesTransactionItemParent&quot; : &quot;8019j000011IPoFAAW&quot;
+    }
+  } ],
+  &quot;updatedNodes&quot; : [ {
+    &quot;path&quot; : [ &quot;0Q0DE000000ISHJs81&quot;, &quot;0QLDE000000IBXw4AO&quot; ],
+    &quot;updatedAttributes&quot; : {
+      &quot;Quantity&quot; : 5
+    }
+  } ],
+  &quot;deletedNodes&quot; : [ {
+    &quot;path&quot; : [ &quot;0Q0DE000000ISHJs81&quot;, &quot;0QLDE000000IBXw4AO&quot; ]
+  } ],
+  &quot;correlationId&quot; : &quot;1c974e82_ec74_4568_85f0_424875a2e13d&quot;,
+  &quot;configuratorOptions&quot; : {
+    &quot;executePricing&quot; : false,
+    &quot;qualifyAllProductsInTransaction&quot; : false,
+    &quot;validateProductCatalog&quot; : true,
+    &quot;validateAmendRenewCancel&quot; : true,
+    &quot;executeConfigurationRules&quot; : true,
+    &quot;returnProductCatalogData&quot; : true,
+    &quot;addDefaultConfiguration&quot; : true
+  }
+}</expectedOutputJson>
+    <fieldLevelSecurityEnabled>true</fieldLevelSecurityEnabled>
+    <inputType>JSON</inputType>
+    <isManagedUsingStdDesigner>true</isManagedUsingStdDesigner>
+    <name>TransformConfigureRequest</name>
+    <nullInputsIncludedInOutput>false</nullInputsIncludedInOutput>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>8424ded1-48f3-48be-9fa9-6ecca4fc5f83</globalKey>
+        <inputFieldName>updatedNodes</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011xTh</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011xTh</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldFormat>List&lt;Map&gt;</outputFieldFormat>
+        <outputFieldName>updatedNodes</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>efeebcc2-993d-4921-a346-381da6b76841</globalKey>
+        <inputFieldName>addedNodes</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011vTd</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011vTd</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldFormat>List&lt;Map&gt;</outputFieldFormat>
+        <outputFieldName>addedNodes</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>945e0723-6dde-4beb-b684-23a77573e5df</globalKey>
+        <inputFieldName>configuratorOptions:validateProductCatalog</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011xFB</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011xFB</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>configuratorOptions:validateProductCatalog</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>8d301fef-127c-4baa-a261-287aaf1e1480</globalKey>
+        <inputFieldName>configuratorOptions:executePricing</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011wfd</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011wfd</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>configuratorOptions:executePricing</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>f61f0d03-96f3-4f09-bd22-6184bae46406</globalKey>
+        <inputFieldName>transactionLineId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011xLd</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011xLd</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>transactionLineId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>44085623-4afc-4421-898a-ad77698ef212</globalKey>
+        <inputFieldName>configuratorOptions:validateAmendRenewCancel</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011xNF</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011xNF</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>configuratorOptions:validateAmendRenewCancel</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>d60af50c-94df-4609-a4f2-7eb943534c7f</globalKey>
+        <inputFieldName>transactionId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011xBx</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011xBx</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>transactionId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>520eb3e8-d2c4-4dfd-9005-5b5593afad29</globalKey>
+        <inputFieldName>transactionContextId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011xDZ</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011xDZ</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>transactionContextId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>94ef9d2d-5d19-46a7-ab30-34cdf8eabada</globalKey>
+        <inputFieldName>configuratorOptions:qualifyAllProductsInTransaction</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011xS5</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011xS5</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>configuratorOptions:qualifyAllProductsInTransaction</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>67366655-b22e-42cb-8b53-ac6356b3e71e</globalKey>
+        <inputFieldName>contextResponseType</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j000001CEg9</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001CEg9</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>contextResponseType</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>24841051-1307-4123-a875-4f52bd181240</globalKey>
+        <inputFieldName>configuratorOptions:addDefaultConfiguration</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011xOr</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011xOr</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>configuratorOptions:addDefaultConfiguration</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>edcbdbc9-a537-4533-a1d7-2f38acb9f245</globalKey>
+        <inputFieldName>correlationId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011xQT</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011xQT</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>correlationId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>c28045b2-71ab-4232-9a19-ae4f9945d899</globalKey>
+        <inputFieldName>qualificationContext</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j000001WL7B</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001WL7B</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>qualificationContext</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>afa769ff-ad91-493e-8571-e64a078b5616</globalKey>
+        <inputFieldName>configuratorOptions:executeConfigurationRules</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011xK1</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011xK1</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>configuratorOptions:executeConfigurationRules</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>8ec6de88-9caf-49d4-99f1-ca7c57bf0b0b</globalKey>
+        <inputFieldName>deletedNodes</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011xGn</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011xGn</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldFormat>List&lt;Map&gt;</outputFieldFormat>
+        <outputFieldName>deletedNodes</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>d1da3fe2-7076-4fd9-ab54-e130c5eee0b1</globalKey>
+        <inputFieldName>configuratorOptions:returnProductCatalogData</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformConfigureRequest</name>
+        <omniDataTransformation>0kd9j0000011xIP</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011xIP</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>configuratorOptions:returnProductCatalogData</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <outputType>JSON</outputType>
+    <previewJsonData>{
+  &quot;transactionId&quot; : &quot;8019j000011IPoFAAW&quot;,
+  &quot;transactionLineId&quot; : &quot;ref_ad18cee3_ac6f_4598_9d18_d165297227c8&quot;,
+  &quot;transactionContextId&quot; : &quot;&quot;,
+  &quot;addedNodes&quot; : [ {
+    &quot;path&quot; : [ &quot;8019j000011IPoFAAW&quot;, &quot;ref_ad18cee3_ac6f_4598_9d18_d165297227c8&quot; ],
+    &quot;addedObject&quot; : {
+      &quot;Product&quot; : &quot;01t9j000008fYdtAAE&quot;,
+      &quot;ProductCode&quot; : &quot;AB Clear Tip Sheaths (x50)&quot;,
+      &quot;ProductName&quot; : &quot;AB Clear Tip Sheaths (x50)&quot;,
+      &quot;ProductBasedOn&quot; : null,
+      &quot;id&quot; : &quot;ref_ad18cee3_ac6f_4598_9d18_d165297227c8&quot;,
+      &quot;PricebookEntry&quot; : &quot;01u9j000004I7WzAAK&quot;,
+      &quot;ProductSellingModel&quot; : &quot;0jP9j00000000KzEAI&quot;,
+      &quot;SellingModelType&quot; : &quot;OneTime&quot;,
+      &quot;SubscriptionTerm&quot; : null,
+      &quot;PricingTermUnit&quot; : null,
+      &quot;UnitPrice&quot; : 9.2,
+      &quot;Quantity&quot; : 1,
+      &quot;businessObjectType&quot; : &quot;OrderItem&quot;,
+      &quot;SalesTransactionItemSource&quot; : &quot;ref_ad18cee3_ac6f_4598_9d18_d165297227c8&quot;,
+      &quot;SalesTransactionItemParent&quot; : &quot;8019j000011IPoFAAW&quot;
+    }
+  } ],
+  &quot;deletedNodes&quot; : [ {
+    &quot;path&quot; : [ &quot;0Q0DE000000ISHJs81&quot;, &quot;0QLDE000000IBXw4AO&quot; ]
+  } ],
+  &quot;correlationId&quot; : &quot;1c974e82_ec74_4568_85f0_424875a2e13d&quot;,
+  &quot;configuratorOptions&quot; : {
+    &quot;executePricing&quot; : false,
+    &quot;qualifyAllProductsInTransaction&quot; : false,
+    &quot;validateProductCatalog&quot; : true,
+    &quot;validateAmendRenewCancel&quot; : true,
+    &quot;executeConfigurationRules&quot; : true,
+    &quot;returnProductCatalogData&quot; : true,
+    &quot;addDefaultConfiguration&quot; : true
+  }
+}</previewJsonData>
+    <processSuperBulk>false</processSuperBulk>
+    <responseCacheTtlMinutes>0.0</responseCacheTtlMinutes>
+    <rollbackOnError>false</rollbackOnError>
+    <sourceObjectDefault>false</sourceObjectDefault>
+    <synchronousProcessThreshold>0.0</synchronousProcessThreshold>
+    <type>Transform</type>
+    <uniqueName>TransformConfigureRequest_1</uniqueName>
+    <versionNumber>1.0</versionNumber>
+    <xmlDeclarationRemoved>false</xmlDeclarationRemoved>
+</OmniDataTransform>

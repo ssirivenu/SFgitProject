@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniDataTransform xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <assignmentRulesUsed>false</assignmentRulesUsed>
+    <deletedOnSuccess>false</deletedOnSuccess>
+    <errorIgnored>false</errorIgnored>
+    <expectedInputJson>{
+  &quot;pricingPref&quot; : &quot;System&quot;,
+  &quot;contextDetails&quot; : {
+    &quot;contextId&quot; : &quot;ace9b58eabf398a8cbdebd4ae4a98614485ae2b2056ffc119266b499a8504317&quot;
+  },
+  &quot;graph&quot; : {
+    &quot;graphId&quot; : &quot;updateOrder&quot;,
+    &quot;records&quot; : [ {
+      &quot;referenceId&quot; : &quot;refOrder&quot;,
+      &quot;record&quot; : {
+        &quot;attributes&quot; : {
+          &quot;type&quot; : &quot;Order&quot;,
+          &quot;method&quot; : &quot;PATCH&quot;,
+          &quot;id&quot; : &quot;8019j000011IPoFAAW&quot;
+        }
+      }
+    } ]
+  },
+  &quot;configurationPref&quot; : {
+    &quot;configurationMethod&quot; : &quot;Force&quot;,
+    &quot;configurationOptions&quot; : {
+      &quot;validateProductCatalog&quot; : true,
+      &quot;validateAmendRenewCancel&quot; : true,
+      &quot;executeConfigurationRules&quot; : true,
+      &quot;addDefaultConfiguration&quot; : false
+    }
+  }
+}</expectedInputJson>
+    <expectedOutputJson>{
+  &quot;pricingPref&quot; : &quot;System&quot;,
+  &quot;contextDetails&quot; : {
+    &quot;contextId&quot; : &quot;ace9b58eabf398a8cbdebd4ae4a98614485ae2b2056ffc119266b499a8504317&quot;
+  },
+  &quot;graph&quot; : {
+    &quot;graphId&quot; : &quot;updateOrder&quot;,
+    &quot;records&quot; : [ {
+      &quot;referenceId&quot; : &quot;refOrder&quot;,
+      &quot;record&quot; : {
+        &quot;attributes&quot; : {
+          &quot;type&quot; : &quot;Order&quot;,
+          &quot;method&quot; : &quot;PATCH&quot;,
+          &quot;id&quot; : &quot;8019j000011IPoFAAW&quot;
+        }
+      }
+    } ]
+  },
+  &quot;configurationPref&quot; : {
+    &quot;configurationMethod&quot; : &quot;Force&quot;,
+    &quot;configurationOptions&quot; : {
+      &quot;validateProductCatalog&quot; : true,
+      &quot;validateAmendRenewCancel&quot; : true,
+      &quot;executeConfigurationRules&quot; : true,
+      &quot;addDefaultConfiguration&quot; : false
+    }
+  }
+}</expectedOutputJson>
+    <fieldLevelSecurityEnabled>true</fieldLevelSecurityEnabled>
+    <inputType>JSON</inputType>
+    <isManagedUsingStdDesigner>true</isManagedUsingStdDesigner>
+    <name>TransformPlaceSalesTransactionRequest</name>
+    <nullInputsIncludedInOutput>false</nullInputsIncludedInOutput>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>e2443995-7373-4ddb-b091-c3a54ddcf7ba</globalKey>
+        <inputFieldName>pricingPref</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformPlaceSalesTransactionRequest</name>
+        <omniDataTransformation>0kd9j0000012jRt</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000012jRt</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>pricingPref</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>26925ad5-9f5f-40e1-bd73-1e8ed79cf4b4</globalKey>
+        <inputFieldName>priceBookId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformPlaceSalesTransactionRequest</name>
+        <omniDataTransformation>0kd9j000002HYQj</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000002HYQj</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>priceBookId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>6e1d3b09-ebc2-41a5-8260-e2cd85d95fd1</globalKey>
+        <inputFieldName>configurationPref</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformPlaceSalesTransactionRequest</name>
+        <omniDataTransformation>0kd9j0000012jBl</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000012jBl</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>configurationPref</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>91a32656-b612-45aa-b41b-24c070f3f0f1</globalKey>
+        <inputFieldName>contextDetails:contextId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformPlaceSalesTransactionRequest</name>
+        <omniDataTransformation>0kd9j0000012jDN</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000012jDN</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>contextDetails:contextId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>0c301de4-e01d-4685-92cf-2c8e87c73186</globalKey>
+        <inputFieldName>graph</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformPlaceSalesTransactionRequest</name>
+        <omniDataTransformation>0kd9j0000012jEz</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000012jEz</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>graph</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <outputType>JSON</outputType>
+    <previewJsonData>{
+  &quot;pricingPref&quot; : &quot;System&quot;,
+  &quot;contextDetails&quot; : {
+    &quot;contextId&quot; : &quot;ace9b58eabf398a8cbdebd4ae4a98614485ae2b2056ffc119266b499a8504317&quot;
+  },
+  &quot;graph&quot; : {
+    &quot;graphId&quot; : &quot;updateOrder&quot;,
+    &quot;records&quot; : [ {
+      &quot;referenceId&quot; : &quot;refOrder&quot;,
+      &quot;record&quot; : {
+        &quot;attributes&quot; : {
+          &quot;type&quot; : &quot;Order&quot;,
+          &quot;method&quot; : &quot;PATCH&quot;,
+          &quot;id&quot; : &quot;8019j000011IPoFAAW&quot;
+        }
+      }
+    } ]
+  },
+  &quot;configurationPref&quot; : {
+    &quot;configurationMethod&quot; : &quot;Force&quot;,
+    &quot;configurationOptions&quot; : {
+      &quot;validateProductCatalog&quot; : true,
+      &quot;validateAmendRenewCancel&quot; : true,
+      &quot;executeConfigurationRules&quot; : true,
+      &quot;addDefaultConfiguration&quot; : false
+    }
+  }
+}</previewJsonData>
+    <processSuperBulk>false</processSuperBulk>
+    <responseCacheTtlMinutes>0.0</responseCacheTtlMinutes>
+    <rollbackOnError>false</rollbackOnError>
+    <sourceObjectDefault>false</sourceObjectDefault>
+    <synchronousProcessThreshold>0.0</synchronousProcessThreshold>
+    <type>Transform</type>
+    <uniqueName>TransformPlaceSalesTransactionRequest_1</uniqueName>
+    <versionNumber>1.0</versionNumber>
+    <xmlDeclarationRemoved>false</xmlDeclarationRemoved>
+</OmniDataTransform>

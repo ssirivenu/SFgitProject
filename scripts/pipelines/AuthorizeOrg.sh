@@ -1,27 +1,50 @@
 #!/bin/bash
-# Srii Seelam 2024-JUN-07 - Updated Authorisation process using JWT Bearer Flow
+set -euo pipefail
 
-#Check if changes need to be run against org
-if [[ ( "$RUNAGAINSTORG" == "false" ) ]] 
-then
-    echo "NO Changes will be validated/deployed in org as RUNAGAINSTORG value if false"; 
-    exit 1;
+# 1. Secure cleanup trap - defined early to guarantee execution on exit
+ENCRYPTED_FILE="./encrypted_key.txt"
+SERVER_KEY="./server.key"
+trap 'rm -f "$ENCRYPTED_FILE" "$SERVER_KEY"' EXIT
+
+# 2. Quiet Debugging: Print string lengths safely (avoids printing secret data to CI/CD logs)
+echo "🔐 Authorizing Salesforce org: ${SANDBOX_NAME:-Unnamed_Sandbox}..."
+echo "ENCRYPTED_KEY string length: ${#ENCRYPTED_KEY:-0}"
+echo "CONSUMER_KEY string length:  ${#CONSUMER_KEY:-0}"
+echo "USER_NAME string length:     ${#USER_NAME:-0}"
+
+# 3. Validate required environment variables are present before executing anything
+if [[ -z "${AESKEY:-}" || -z "${IVKEY:-}" || -z "${INSTANCE_URL:-}" || -z "${USER_NAME:-}" || -z "${CONSUMER_KEY:-}" ]]; then
+  echo "❌ Error: Required crypto, target org, or instance environment variables are missing." >&2
+  exit 1
 fi
 
-#SFDX_URL charecter count
-echo -n "SFDX URL Character Count: "
-echo -n "$SFDX_URL" | wc -c
+# 4. Handle Conditional Skip (Pipeline-friendly exit code)
+if [[ "${RUNAGAINSTORG:-}" == "false" ]]; then
+  echo "ℹ️ RUNAGAINSTORG=false, skipping org authorization."
+  exit 0  # 0 indicates a clean conditional bypass rather than a red pipeline failure
+fi
 
-#Authorize Sandbox environment
-echo $SFDX_URL > ./sf_auth_url.txt
+# 5. Write encrypted key to file without adding corrupting trailing newlines
+printf "%s" "$ENCRYPTED_KEY" > "$ENCRYPTED_FILE"
 
-sf org login sfdx-url -f ./sf_auth_url.txt -s -a $SANDBOX_NAME 
-if [ $? -eq 0 ]; then
-    echo "Successfully authorized the org: $SANDBOX_NAME"
+# 6. Decrypt JWT key using modern OpenSSL 3.x standards (AES-256-CBC + SHA256 + PBKDF2)
+echo "🔓 Decrypting private key..."
+openssl enc -aes-256-cbc -md sha256 -salt -pbkdf2 -base64 -d \
+  -in "$ENCRYPTED_FILE" \
+  -out "$SERVER_KEY" \
+  -K "$AESKEY" \
+  -iv "$IVKEY"
+
+# 7. Authorize Salesforce org via JWT flow (Execution is inherently safe without 'set -x')
+echo "🚀 Initializing JWT OAuth flow with Salesforce..."
+if sf org login jwt \
+  -o "$USER_NAME" \
+  -f "$SERVER_KEY" \
+  -i "$CONSUMER_KEY" \
+  -r "$INSTANCE_URL" \
+  -a "$SANDBOX_NAME"; then
+    echo "✅ Successfully authorized the org: $SANDBOX_NAME"
 else
-    echo "Failed to authorize the org. Please check the error above."
+    echo "❌ Error: Failed to authorize the org. Please review the Salesforce CLI error above." >&2
     exit 1
 fi
-rm ./sf_auth_url.txt #remove auth file after authorization
-
-

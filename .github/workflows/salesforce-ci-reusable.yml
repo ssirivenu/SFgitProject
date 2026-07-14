@@ -1,11 +1,11 @@
-name: salesforce-ci-reusable
+name: salesforce-ci
 # This workflow allows manual deployment of changes to a Salesforce org.
-# It is triggered manually and allows the user to specify the environment, test class names, and whether to validate or deploy changes.
+# It is triggered manually or can eb called by a different workflow and allows the user to specify the environment, and whether to validate or deploy changes.
 # The workflow uses the sfdx-git-delta plugin to generate a delta of changes and then
 # deploys or validates those changes against the specified Salesforce org.
 
 on:
-  workflow_dispatch:  # Allows manual triggering of the workflow salesforce-ci-reusable
+  workflow_dispatch: 
     inputs:
         environment:
           description: 'Environment to run tests against'
@@ -30,9 +30,13 @@ on:
   
 jobs:
   ManualDeployment:
-    runs-on: ubuntu-latest
+    runs-on: cd-ubuntu-latest
+    # Run all steps inside the official Salesforce CLI container
+    container:
+      image: salesforce/cli:latest-full
     permissions:
       contents: read
+      id-token: write
     environment:
       name: ${{ inputs.environment }}
     env:
@@ -43,44 +47,23 @@ jobs:
         SANDBOX_NAME: ${{ vars.SANDBOX_NAME }}
         RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
         UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
-        SPECIFIEDTESTS: ${{ vars.SPECIFIEDTESTS}}
+        SPECIFIEDTESTS: ${{ vars.testclassnames }}
         SF_CLI_URL: ${{ vars.SF_CLI_URL }}
-        IGNORE_PATHS: "${{vars.IGNORE_PATHS}}"
     steps:
       # checkout Source
       - name: 'Checkout source code'
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # V6.0.2
         with:
           fetch-depth: 0
 
-      # Install Salesforce CLI & sfdx-git-delta plugin
-      # Install Node.js
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      # Install pnpm
-      - name: Install pnpm
-        run: npm install -g pnpm
-
-      # ✅ Fix: Setup pnpm global bin
-      - name: Setup pnpm environment
-        run: |
-          pnpm setup
-          echo "PNPM_HOME=$HOME/.local/share/pnpm" >> $GITHUB_ENV
-          echo "$HOME/.local/share/pnpm" >> $GITHUB_PATH
-
-
-      # Install Salesforce CLI via pnpm
-      - name: Install Salesforce CLI
-        run: npm add -g @salesforce/cli${{vars.SF_CLI_VERSION}}
-
+      # conform SF version
       - name: Verify Salesforce CLI
-        run: sf --version
+        run: |
+          sf --version
+      # Install sfdx-git-delta for identifyign the changes between commits
       - name: Install sfdx-git-delta
         run: |
-          echo y | sf plugins:install sfdx-git-delta
+          echo y | sf plugins:install sfdx-git-delta@6.41.2
           sf plugins
 
       #Create delta files
@@ -90,7 +73,7 @@ jobs:
 
       # Set up the PMD tool
       - name: 'Setup PMD'
-        uses: legetz/setup-pmd@7.0.0-rc4
+        uses: legetz/setup-pmd@6eaa78f330bf0c43763da24a9966d83f7aeb1f54 #V7.22.0
 
       # Run the PMD code scan if there has been apex class changes & upload results file on failure       
       - name: 'Apex changes scan'
@@ -99,27 +82,15 @@ jobs:
         run: bash scripts/pipelines/RunPMDScan.sh
       - name: Upload PMD Report
         if: failure() && steps.Codescan.outcome == 'failure'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f #v7.0.0
         with:
           name: pmd-scan-results
           path: pmdResults/PmdResults.txt
 
       #Authorizes the salesforce environment and deploys or validates changes in the Salesforce org
       - name: Authorize Org
-        env:
-          AESKEY: ${{ secrets.AESKEY }}
-          IVKEY: ${{ secrets.IVKEY }}
-          ENCRIPTED_KEY: ${{ secrets.ENCRIPTED_KEY }}
-          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
-          USER_NAME: ${{ secrets.USER_NAME }}
-          INSTANCE_URL: ${{vars.INSTANCE_URL}}
-          #SF_LOG_LEVEL: debug
-          #DEBUG: '*'
         run: |
-          export SF_LOG_LEVEL=debug
           bash scripts/pipelines/AuthorizeOrg.sh
-          
       - name: 🚀 Start Action
         run: |
-          export SF_LOG_LEVEL=debug
           bash scripts/pipelines/DeployOrValidateToOrg.sh ${{ inputs.action_type}}

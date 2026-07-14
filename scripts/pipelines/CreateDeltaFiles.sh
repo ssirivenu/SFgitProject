@@ -8,6 +8,8 @@
 mkdir changedSources
 # Get Delta using the Sf git delta plugin 
 echo "" # insert new line
+echo "FROM_TAG=$FROM_TAG"
+echo "TO_TAG=$TO_TAG"
 #echo "FROM_TAG: $FROM_TAG" # if commented, HEAD~1 is used as the from commit
 sf sgd source delta -f $FROM_TAG -t $TO_TAG -o "changedSources" -i .forceignore -a $API_VERSION --generate-delta
 #sf sgd source delta -f HEAD~1 -t HEAD -o "changedSources" -i .forceignore -a $API_VERSION

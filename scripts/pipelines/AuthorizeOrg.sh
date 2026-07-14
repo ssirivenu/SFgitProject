@@ -29,11 +29,8 @@ printf "%s" "$ENCRYPTED_KEY" > "$ENCRYPTED_FILE"
 
 # 6. Decrypt JWT key using modern OpenSSL 3.x standards (AES-256-CBC + SHA256 + PBKDF2)
 echo "🔓 Decrypting private key..."
-openssl enc -aes-256-cbc -md sha256 -nosalt -pbkdf2 -base64 -d \
-  -in "$ENCRYPTED_FILE" \
-  -out "$SERVER_KEY" \
-  -K "$AESKEY" \
-  -iv "$IVKEY"
+
+  openssl enc -aes-256-cbc --md sha1 -nosalt -base64 -d -in "$ENCRYPTED_FILE"  -out "$SERVER_KEY" -K $AESKEY -iv $IVKEY
 
 # 7. Authorize Salesforce org via JWT flow (Execution is inherently safe without 'set -x')
 echo "🚀 Initializing JWT OAuth flow with Salesforce..."

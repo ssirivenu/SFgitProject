@@ -46,7 +46,7 @@ jobs:
         SPECIFIEDTESTS: ${{ vars.testclassnames }}
         SF_CLI_URL: ${{ vars.SF_CLI_URL }}
         ENCRYPTED_KEY: ${{ secrets.ENCRYPTED_KEY }}
-        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+        CONSUMER_KEY: ${{ vars.CONSUMER_KEY }}
         USER_NAME: ${{ vars.USER_NAME }}
         AESKEY: ${{ secrets.AESKEY }}
         IVKEY: ${{ secrets.IVKEY }}

@@ -72,7 +72,7 @@ jobs:
 
       # Set up the PMD tool
       - name: 'Setup PMD'
-        uses: legetz/setup-pmd@v7.22.0 #V7.22.0
+        uses: legetz/setup-pmd@7.22.0 #V7.22.0
 
       # Run the PMD code scan if there has been apex class changes & upload results file on failure       
       - name: 'Apex changes scan'

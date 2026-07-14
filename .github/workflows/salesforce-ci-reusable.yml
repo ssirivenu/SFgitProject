@@ -36,7 +36,6 @@ jobs:
       image: salesforce/cli:latest-full
     permissions:
       contents: read
-      id-token: write
     environment:
       name: ${{ inputs.environment }}
     env:

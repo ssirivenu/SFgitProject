@@ -30,7 +30,7 @@ on:
   
 jobs:
   ManualDeployment:
-    runs-on: cd-ubuntu-latest
+    runs-on: ubuntu-latest
     # Run all steps inside the official Salesforce CLI container
     container:
       image: salesforce/cli:latest-full

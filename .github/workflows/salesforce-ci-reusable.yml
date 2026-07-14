@@ -45,6 +45,13 @@ jobs:
         UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
         SPECIFIEDTESTS: ${{ vars.testclassnames }}
         SF_CLI_URL: ${{ vars.SF_CLI_URL }}
+        ENCRYPTED_KEY: ${{ secrets.ENCRYPTED_KEY }}
+        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+        USER_NAME: ${{ secrets.USER_NAME }}
+        AESKEY: ${{ secrets.AESKEY }}
+        IVKEY: ${{ secrets.IVKEY }}
+        INSTANCE_URL: ${{ vars.INSTANCE_URL }}
+        
     steps:
       # checkout Source
       - name: 'Checkout source code'

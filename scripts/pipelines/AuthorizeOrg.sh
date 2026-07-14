@@ -33,6 +33,8 @@ echo "🔓 Decrypting private key..."
   openssl enc -aes-256-cbc --md sha1 -nosalt -base64 -d -in $ENCRYPTED_FILE  -out $SERVER_KEY -K $AESKEY -iv $IVKEY
 
 cat  $SERVER_KEY
+
+set -x 
 # 7. Authorize Salesforce org via JWT flow (Execution is inherently safe without 'set -x')
 echo "🚀 Initializing JWT OAuth flow with Salesforce..."
 sf org login jwt \
@@ -41,3 +43,4 @@ sf org login jwt \
   -i $CONSUMER_KEY \
   -r $INSTANCE_URL \
   -a $SANDBOX_NAME
+set +x

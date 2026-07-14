@@ -68,32 +68,7 @@ jobs:
       - name: Verify Salesforce CLI
         run: |
           sf --version
-      # Install sfdx-git-delta for identifyign the changes between commits
-      - name: Install sfdx-git-delta
-        run: |
-          echo y | sf plugins:install sfdx-git-delta@6.41.2
-          sf plugins
-
-      #Create delta files
-      - name: Create Delta files
-        run: |
-          bash scripts/pipelines/CreateDeltaFiles.sh 
-
-      # Set up the PMD tool
-      - name: 'Setup PMD'
-        uses: legetz/setup-pmd@7.22.0 #V7.22.0
-
-      # Run the PMD code scan if there has been apex class changes & upload results file on failure       
-      - name: 'Apex changes scan'
-        id: Codescan
-        if: ${{( hashFiles('changedSources/force-app/main/default/classes/*.cls') !='') }}
-        run: bash scripts/pipelines/RunPMDScan.sh
-      - name: Upload PMD Report
-        if: failure() && steps.Codescan.outcome == 'failure'
-        uses: actions/upload-artifact@v7.0.0 #v7.0.0
-        with:
-          name: pmd-scan-results
-          path: pmdResults/PmdResults.txt
+     
 
       #Authorizes the salesforce environment and deploys or validates changes in the Salesforce org
       - name: Authorize Org

@@ -29,7 +29,7 @@ printf "%s" "$ENCRYPTED_KEY" > "$ENCRYPTED_FILE"
 
 # 6. Decrypt JWT key using modern OpenSSL 3.x standards (AES-256-CBC + SHA256 + PBKDF2)
 echo "🔓 Decrypting private key..."
-openssl enc -aes-256-cbc -md sha256 -salt -pbkdf2 -base64 -d \
+openssl enc -aes-256-cbc -md sha256 -nosalt -pbkdf2 -base64 -d \
   -in "$ENCRYPTED_FILE" \
   -out "$SERVER_KEY" \
   -K "$AESKEY" \

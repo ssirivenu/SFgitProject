@@ -38,10 +38,5 @@ cat  $SERVER_KEY
 set -x 
 # 7. Authorize Salesforce org via JWT flow (Execution is inherently safe without 'set -x')
 echo "🚀 Initializing JWT OAuth flow with Salesforce..."
-sf org login jwt \
-  -o srii.seelam@merkle.com.build\
-  -f $SERVER_KEY \
-  -i "$CONSUMER_KEY" \
-  -r https://test.salesforce.com \
-  -a $SANDBOX_NAME
+sf org login jwt -o srii.seelam@merkle.com.build -f $SERVER_KEY -i "3MVG9JgJamLaOK52YAPdElwPr.x52bQjcB9h_wJFbU6svmTnVSXyYlAgpHWG17xudTms0oON6ga1mLGYcvKM5" -r https://test.salesforce.com -a $SANDBOX_NAME
 set +x

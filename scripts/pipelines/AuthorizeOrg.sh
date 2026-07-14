@@ -19,7 +19,7 @@ if [[ "$RUNAGAINSTORG" == "false" ]]; then
 fi
 
 # Write encrypted key to file
-echo "$ENCRIPTED_KEY" > encrypted_key.txt
+echo "$ENCRYPTED_KEY" > encrypted_key.txt
 
 # Decrypt JWT key using AESKEY and IVKEY
 openssl enc -aes-256-cbc -md sha1 -nosalt -base64 -d \

@@ -37,5 +37,5 @@ openssl enc -aes-256-cbc --md sha1 -nosalt -base64 -d -in $ENCRYPTED_FILE  -out 
 set -x 
 # 7. Authorize Salesforce org via JWT flow (Execution is inherently safe without 'set -x')
 echo "🚀 Initializing JWT OAuth flow with Salesforce..."
-sf org login jwt -o $USER_NAME  -f $SERVER_KEY -i $CONSUMER_KEY -r https://test.salesforce.com -a $SANDBOX_NAME
+sf org login jwt -o $USER_NAME  -f $SERVER_KEY -i ${{ secrets.SF_CONSUMER_KEY }} -r https://test.salesforce.com -a $SANDBOX_NAME
 set +x

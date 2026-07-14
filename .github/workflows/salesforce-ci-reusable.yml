@@ -51,7 +51,7 @@ jobs:
     steps:
       # checkout Source
       - name: 'Checkout source code'
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # V6.0.2
+        uses: actions/checkout@v6.0.2 # V6.0.2
         with:
           fetch-depth: 0
 
@@ -72,7 +72,7 @@ jobs:
 
       # Set up the PMD tool
       - name: 'Setup PMD'
-        uses: legetz/setup-pmd@6eaa78f330bf0c43763da24a9966d83f7aeb1f54 #V7.22.0
+        uses: legetz/setup-pmd@v7.22.0 #V7.22.0
 
       # Run the PMD code scan if there has been apex class changes & upload results file on failure       
       - name: 'Apex changes scan'
@@ -81,7 +81,7 @@ jobs:
         run: bash scripts/pipelines/RunPMDScan.sh
       - name: Upload PMD Report
         if: failure() && steps.Codescan.outcome == 'failure'
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f #v7.0.0
+        uses: actions/upload-artifact@v7.0.0 #v7.0.0
         with:
           name: pmd-scan-results
           path: pmdResults/PmdResults.txt

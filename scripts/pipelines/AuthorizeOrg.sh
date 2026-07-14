@@ -7,10 +7,10 @@ SERVER_KEY="./server.key"
 trap 'rm -f "$ENCRYPTED_FILE" "$SERVER_KEY"' EXIT
 
 # 2. Quiet Debugging: Print string lengths safely (avoids printing secret data to CI/CD logs)
-echo "🔐 Authorizing Salesforce org: ${SANDBOX_NAME:-Unnamed_Sandbox}..."
-echo "ENCRYPTED_KEY string length: ${#ENCRYPTED_KEY:-0}"
-echo "CONSUMER_KEY string length:  ${#CONSUMER_KEY:-0}"
-echo "USER_NAME string length:     ${#USER_NAME:-0}"
+echo "🔐 Authorizing Salesforce org: ${SANDBOX_NAME}..."
+echo "ENCRYPTED_KEY string length: ${#ENCRYPTED_KEY}"
+echo "CONSUMER_KEY string length:  ${#CONSUMER_KEY}"
+echo "USER_NAME string length:     ${#USER_NAME}"
 
 # 3. Validate required environment variables are present before executing anything
 if [[ -z "${AESKEY:-}" || -z "${IVKEY:-}" || -z "${INSTANCE_URL:-}" || -z "${USER_NAME:-}" || -z "${CONSUMER_KEY:-}" ]]; then

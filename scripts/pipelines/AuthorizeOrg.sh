@@ -35,14 +35,9 @@ echo "🔓 Decrypting private key..."
 cat  $SERVER_KEY
 # 7. Authorize Salesforce org via JWT flow (Execution is inherently safe without 'set -x')
 echo "🚀 Initializing JWT OAuth flow with Salesforce..."
-if sf org login jwt \
+sf org login jwt \
   -o $USER_NAME \
   -f $SERVER_KEY \
   -i $CONSUMER_KEY \
   -r $INSTANCE_URL \
-  -a $SANDBOX_NAME; then
-    echo "✅ Successfully authorized the org: $SANDBOX_NAME"
-else
-    echo "❌ Error: Failed to authorize the org. Please review the Salesforce CLI error above." >&2
-    exit 1
-fi
+  -a $SANDBOX_NAME

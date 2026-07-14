@@ -8,7 +8,7 @@ set -e
 echo "🔐 Authorizing org $SANDBOX_NAME..."
 echo "AESKEY length: ${#AESKEY}"
 echo "IVKEY length: ${#IVKEY}"
-echo "ENCRIPTED_KEY length: ${#ENCRIPTED_KEY}"
+echo "ENCRIPTED_KEY length: ${#ENCRYPTED_KEY}"
 echo "CONSUMER_KEY length: ${#CONSUMER_KEY}"
 echo "USER_NAME length: ${#USER_NAME}"
 

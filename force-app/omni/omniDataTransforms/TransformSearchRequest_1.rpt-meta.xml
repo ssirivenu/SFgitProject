@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniDataTransform xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <assignmentRulesUsed>false</assignmentRulesUsed>
+    <deletedOnSuccess>false</deletedOnSuccess>
+    <errorIgnored>false</errorIgnored>
+    <expectedInputJson>{
+  &quot;enableQualification&quot; : true,
+  &quot;enablePricing&quot; : true,
+  &quot;includeCatalogDetails&quot; : true,
+  &quot;searchTerm&quot; : &quot;Allflex&quot;,
+  &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+  &quot;limit&quot; : 12,
+  &quot;userContext&quot; : {
+    &quot;accountId&quot; : &quot;0019j00000xrjQ2AAI&quot;
+  },
+  &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+  &quot;currencyCode&quot; : &quot;NZD&quot;,
+  &quot;filter&quot; : {
+    &quot;criteria&quot; : [ {
+      &quot;property&quot; : &quot;isQualified&quot;,
+      &quot;operator&quot; : &quot;eq&quot;,
+      &quot;value&quot; : true
+    }, {
+      &quot;property&quot; : &quot;isActive&quot;,
+      &quot;operator&quot; : &quot;eq&quot;,
+      &quot;value&quot; : true
+    } ]
+  },
+  &quot;orderBy&quot; : [ &quot;name:asc&quot; ]
+}</expectedInputJson>
+    <expectedOutputJson>{
+  &quot;enableQualification&quot; : true,
+  &quot;enablePricing&quot; : true,
+  &quot;includeCatalogDetails&quot; : true,
+  &quot;searchTerm&quot; : &quot;Allflex&quot;,
+  &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+  &quot;limit&quot; : 12,
+  &quot;userContext&quot; : {
+    &quot;accountId&quot; : &quot;0019j00000xrjQ2AAI&quot;
+  },
+  &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+  &quot;currencyCode&quot; : &quot;NZD&quot;,
+  &quot;filter&quot; : {
+    &quot;criteria&quot; : [ {
+      &quot;property&quot; : &quot;isQualified&quot;,
+      &quot;operator&quot; : &quot;eq&quot;,
+      &quot;value&quot; : true
+    }, {
+      &quot;property&quot; : &quot;isActive&quot;,
+      &quot;operator&quot; : &quot;eq&quot;,
+      &quot;value&quot; : true
+    } ]
+  },
+  &quot;orderBy&quot; : [ &quot;name:asc&quot; ]
+}</expectedOutputJson>
+    <fieldLevelSecurityEnabled>true</fieldLevelSecurityEnabled>
+    <inputType>JSON</inputType>
+    <isManagedUsingStdDesigner>true</isManagedUsingStdDesigner>
+    <name>TransformSearchRequest</name>
+    <nullInputsIncludedInOutput>false</nullInputsIncludedInOutput>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>5907b597-73a8-4bf8-bd22-bf325ff16133</globalKey>
+        <inputFieldName>SVSearchRequest:enablePricing</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformSearchRequest</name>
+        <omniDataTransformation>0kd9j0000013i5Z</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000013i5Z</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>enablePricing</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>a5579362-ce03-40d7-9c81-c5bb821e0782</globalKey>
+        <inputFieldName>SVSearchRequest:filter</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformSearchRequest</name>
+        <omniDataTransformation>0kd9j0000013i8n</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000013i8n</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>filter</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>39058d8d-8e25-48b8-9ae0-acbc2938bc01</globalKey>
+        <inputFieldName>SVSearchRequest:orderBy</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformSearchRequest</name>
+        <omniDataTransformation>0kd9j0000013iS9</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000013iS9</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>orderBy</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>ba23a328-200d-4bf1-aefe-3c3168c52db0</globalKey>
+        <inputFieldName>SVSearchRequest:currencyCode</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformSearchRequest</name>
+        <omniDataTransformation>0kd9j0000013iFF</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000013iFF</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>currencyCode</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>192b0a8d-4101-4316-9803-268c5478b9d9</globalKey>
+        <inputFieldName>SVSearchRequest:priceBookId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformSearchRequest</name>
+        <omniDataTransformation>0kd9j0000013iC1</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000013iC1</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>priceBookId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>c735b977-2b34-4123-b1d9-25aab5edd735</globalKey>
+        <inputFieldName>SVSearchRequest:categoryId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformSearchRequest</name>
+        <omniDataTransformation>0kd9j0000017KO1</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000017KO1</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>categoryId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>1ecf3fb9-12d3-460b-896c-137c9f3052c2</globalKey>
+        <inputFieldName>SVSearchRequest:userContext</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformSearchRequest</name>
+        <omniDataTransformation>0kd9j0000013iGr</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000013iGr</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>userContext</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>461e2c65-7600-44b4-b92c-4fd0d965a685</globalKey>
+        <inputFieldName>SVSearchRequest:searchTerm</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformSearchRequest</name>
+        <omniDataTransformation>0kd9j0000013iIT</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000013iIT</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>searchTerm</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>15b2c220-7a08-4ade-a2c0-c3b499392687</globalKey>
+        <inputFieldName>SVSearchRequest:includeCatalogDetails</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformSearchRequest</name>
+        <omniDataTransformation>0kd9j0000013hz7</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000013hz7</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>includeCatalogDetails</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>316a04b3-05a2-4229-a5e0-60747a97b873</globalKey>
+        <inputFieldName>SVSearchRequest:limit</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformSearchRequest</name>
+        <omniDataTransformation>0kd9j0000013iLh</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000013iLh</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>limit</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>6454399d-ed25-4d95-877e-d881de7d05f1</globalKey>
+        <inputFieldName>SVSearchRequest:enableQualification</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformSearchRequest</name>
+        <omniDataTransformation>0kd9j0000013i0j</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000013i0j</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>enableQualification</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>86347338-52b8-4c08-a1fa-0f4681f0f03b</globalKey>
+        <inputFieldName>SVSearchRequest:catalogId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformSearchRequest</name>
+        <omniDataTransformation>0kd9j0000013iK5</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000013iK5</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>catalogId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <outputType>JSON</outputType>
+    <previewJsonData>{
+  &quot;enableQualification&quot; : true,
+  &quot;enablePricing&quot; : true,
+  &quot;includeCatalogDetails&quot; : true,
+  &quot;searchTerm&quot; : &quot;Allflex&quot;,
+  &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+  &quot;limit&quot; : 12,
+  &quot;userContext&quot; : {
+    &quot;accountId&quot; : &quot;0019j00000xrjQ2AAI&quot;
+  },
+  &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+  &quot;currencyCode&quot; : &quot;NZD&quot;,
+  &quot;filter&quot; : {
+    &quot;criteria&quot; : [ {
+      &quot;property&quot; : &quot;isQualified&quot;,
+      &quot;operator&quot; : &quot;eq&quot;,
+      &quot;value&quot; : true
+    }, {
+      &quot;property&quot; : &quot;isActive&quot;,
+      &quot;operator&quot; : &quot;eq&quot;,
+      &quot;value&quot; : true
+    } ]
+  },
+  &quot;orderBy&quot; : [ &quot;name:asc&quot; ]
+}</previewJsonData>
+    <processSuperBulk>false</processSuperBulk>
+    <responseCacheTtlMinutes>0.0</responseCacheTtlMinutes>
+    <rollbackOnError>false</rollbackOnError>
+    <sourceObjectDefault>false</sourceObjectDefault>
+    <synchronousProcessThreshold>0.0</synchronousProcessThreshold>
+    <type>Transform</type>
+    <uniqueName>TransformSearchRequest_1</uniqueName>
+    <versionNumber>1.0</versionNumber>
+    <xmlDeclarationRemoved>false</xmlDeclarationRemoved>
+</OmniDataTransform>

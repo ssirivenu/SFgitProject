@@ -1,0 +1,1741 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniDataTransform xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <assignmentRulesUsed>false</assignmentRulesUsed>
+    <deletedOnSuccess>false</deletedOnSuccess>
+    <errorIgnored>false</errorIgnored>
+    <expectedInputJson>{
+  &quot;result&quot; : [ {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005F3FGAU&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EbpGAE&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EbpGAE&quot;,
+      &quot;name&quot; : &quot;Tag Accessories&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexBrassTag&quot;,
+    &quot;id&quot; : &quot;01t9j000008dGjRAAU&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex Brass Tag&quot;,
+    &quot;nodeType&quot; : &quot;simpleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 1.25,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004GyE1AAK&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AEvK1EAL&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex Brass Tag&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000000w5EAA&quot;,
+      &quot;productId&quot; : &quot;01t9j000008dGjRAAU&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005ETlGAM&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005ES9GAM&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005ES9GAM&quot;,
+      &quot;name&quot; : &quot;Calf Tags&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexEconomyCalfTag&quot;,
+    &quot;id&quot; : &quot;01t9j000008baPhAAI&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex Economy Calf Tag&quot;,
+    &quot;nodeType&quot; : &quot;simpleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 2.7,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004GL4bAAG&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAhFdEAL&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex Economy Calf Tag&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000000cjEAA&quot;,
+      &quot;productId&quot; : &quot;01t9j000008baPhAAI&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EyPGAU&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EaDGAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EaDGAU&quot;,
+      &quot;name&quot; : &quot;EID&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexEIDMaleTag&quot;,
+    &quot;id&quot; : &quot;01t9j000008fVXtAAM&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex EID Male Tag&quot;,
+    &quot;nodeType&quot; : &quot;simpleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 10,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004I3A1AAK&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAzpFEAT&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex EID Male Tag&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000001XBEAY&quot;,
+      &quot;productId&quot; : &quot;01t9j000008fVXtAAM&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EaDGAU&quot;,
+      &quot;name&quot; : &quot;EID&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EyPGAU&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EaDGAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexFDXBirthIDEIDTag&quot;,
+    &quot;id&quot; : &quot;01t9j000008u3cwAAA&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex FDX Birth ID EID Tag&quot;,
+    &quot;nodeType&quot; : &quot;bundleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 4.05,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004PQt3AAG&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAzpFEAT&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex FDX Birth ID EID Tag&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000003YzEAI&quot;,
+      &quot;productId&quot; : &quot;01t9j000008u3cwAAA&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;productType&quot; : &quot;Bundle&quot;,
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005HmbGAE&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;name&quot; : &quot;Calf Pack&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexFDXEconomyCalfPack&quot;,
+    &quot;id&quot; : &quot;01t9j000008bakfAAA&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex FDX Economy Calf Pack&quot;,
+    &quot;nodeType&quot; : &quot;bundleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 6.2,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004GL6DAAW&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAhFdEAL&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex FDX Economy Calf Pack&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000000eLEAQ&quot;,
+      &quot;productId&quot; : &quot;01t9j000008bakfAAA&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;productType&quot; : &quot;Bundle&quot;,
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005HmbGAE&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;name&quot; : &quot;Calf Pack&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexFDXEconomyCalfPackwithBrass&quot;,
+    &quot;id&quot; : &quot;01t9j000008fVhZAAU&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex FDX Economy Calf Pack with Brass&quot;,
+    &quot;nodeType&quot; : &quot;bundleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 7.4,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004I3GTAA0&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAhFdEAL&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex FDX Economy Calf Pack with Brass&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000001c1EAA&quot;,
+      &quot;productId&quot; : &quot;01t9j000008fVhZAAU&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;productType&quot; : &quot;Bundle&quot;,
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005HmbGAE&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;name&quot; : &quot;Calf Pack&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexFDXPremiumCalfPack&quot;,
+    &quot;id&quot; : &quot;01t9j000008fRFmAAM&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex FDX Premium Calf Pack&quot;,
+    &quot;nodeType&quot; : &quot;bundleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 7.15,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004I3Q9AAK&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAhFdEAL&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex FDX Premium Calf Pack&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000001lhEAA&quot;,
+      &quot;productId&quot; : &quot;01t9j000008fRFmAAM&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;productType&quot; : &quot;Bundle&quot;,
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005HmbGAE&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;name&quot; : &quot;Calf Pack&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexFDXPremiumCalfPackwithBrass&quot;,
+    &quot;id&quot; : &quot;01t9j000008fW49AAE&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex FDX Premium Calf Pack with Brass&quot;,
+    &quot;nodeType&quot; : &quot;bundleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 8.35,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004IXo2AAG&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAhFdEAL&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex FDX Premium Calf Pack with Brass&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000001ovEAA&quot;,
+      &quot;productId&quot; : &quot;01t9j000008fW49AAE&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;productType&quot; : &quot;Bundle&quot;,
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EaDGAU&quot;,
+      &quot;name&quot; : &quot;EID&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EyPGAU&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EaDGAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexFDXReplacementEIDTag&quot;,
+    &quot;id&quot; : &quot;01t9j000008uoFGAAY&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex FDX Replacement EID Tag&quot;,
+    &quot;nodeType&quot; : &quot;bundleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 4.05,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004Pq17AAC&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAzpFEAT&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex FDX Replacement EID Tag&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000003h3EAA&quot;,
+      &quot;productId&quot; : &quot;01t9j000008uoFGAAY&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;productType&quot; : &quot;Bundle&quot;,
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  } ]
+}</expectedInputJson>
+    <fieldLevelSecurityEnabled>true</fieldLevelSecurityEnabled>
+    <inputType>JSON</inputType>
+    <isManagedUsingStdDesigner>true</isManagedUsingStdDesigner>
+    <name>TransformProductResponse</name>
+    <nullInputsIncludedInOutput>false</nullInputsIncludedInOutput>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>18cc8079-f195-4168-8ffc-a922a3acf4ab</globalKey>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductResponse</name>
+        <omniDataTransformation>0kd9j0000017gmj</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000017gmj</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldFormat>List&lt;Map&gt;</outputFieldFormat>
+        <outputFieldName>result</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>c8c6e521-41a8-45ac-a412-0d36d21c1daf</globalKey>
+        <inputFieldName>result:defaultPrice</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductResponse</name>
+        <omniDataTransformation>0kd9j0000015iPf</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000015iPf</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>result:defaultPrice</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <formulaConverted>| var:result:prices:isDefault true == var:result:prices:price IF</formulaConverted>
+        <formulaExpression>IF(result:prices:isDefault == true, result:prices:price)</formulaExpression>
+        <formulaResultPath>result:defaultPrice</formulaResultPath>
+        <formulaSequence>1.0</formulaSequence>
+        <globalKey>53ef30e7-6555-4453-9e60-cd72822cd713</globalKey>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductResponse</name>
+        <omniDataTransformation>0kd9j0000015bPl</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000015bPl</omniDataTransformationId>
+        <outputCreationSequence>0.0</outputCreationSequence>
+        <outputFieldName>Formula</outputFieldName>
+        <outputObjectName>Formula</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>b882115d-563f-492b-b11e-7e90aa8d1113</globalKey>
+        <inputFieldName>result:name</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductResponse</name>
+        <omniDataTransformation>0kd9j0000015aFB</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000015aFB</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>result:name</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>13e0650f-a05a-4684-8210-2258509605b7</globalKey>
+        <inputFieldName>result:productCode</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductResponse</name>
+        <omniDataTransformation>0kd9j0000015aBK</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000015aBK</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>result:productCode</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>bcbcea76-7725-40d0-a302-2680488ac7c7</globalKey>
+        <inputFieldName>result:displayUrl</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductResponse</name>
+        <omniDataTransformation>0kd9j0000015aBJ</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000015aBJ</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>result:displayUrl</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>74afb3bc-e6df-45e6-88ea-75edba5b8d9b</globalKey>
+        <inputFieldName>result:id</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductResponse</name>
+        <omniDataTransformation>0kd9j0000015iUT</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000015iUT</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>result:id</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>eda76e63-b26a-49a7-8b30-db4cd1e46c5a</globalKey>
+        <inputFieldName>result:categories</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductResponse</name>
+        <omniDataTransformation>0kd9j0000015aBx</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000015aBx</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>result:categories</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>2d3c04d4-e154-4665-b515-df171e557617</globalKey>
+        <inputFieldName>result:prices</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductResponse</name>
+        <omniDataTransformation>0kd9j0000015aDZ</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000015aDZ</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>result:prices</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>6ae4eedb-f50c-47c2-afd9-14057923fcea</globalKey>
+        <inputFieldName>ProductRule</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductResponse</name>
+        <omniDataTransformation>0kd9j000001gvJ3</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001gvJ3</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>ProductRule</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>cf1d719e-5eff-4e1e-a878-bc6007727e0e</globalKey>
+        <inputFieldName>apiStatus</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductResponse</name>
+        <omniDataTransformation>0kd9j000001AJIX</omniDataTransformation>
+        <omniDataTransformationId>0kd9j000001AJIX</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>apiStatus</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <outputType>JSON</outputType>
+    <previewJsonData>{
+  &quot;result&quot; : [ {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005F3FGAU&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EbpGAE&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EbpGAE&quot;,
+      &quot;name&quot; : &quot;Tag Accessories&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexBrassTag&quot;,
+    &quot;id&quot; : &quot;01t9j000008dGjRAAU&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex Brass Tag&quot;,
+    &quot;nodeType&quot; : &quot;simpleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 1.25,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004GyE1AAK&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AEvK1EAL&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex Brass Tag&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000000w5EAA&quot;,
+      &quot;productId&quot; : &quot;01t9j000008dGjRAAU&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005ETlGAM&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005ES9GAM&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005ES9GAM&quot;,
+      &quot;name&quot; : &quot;Calf Tags&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexEconomyCalfTag&quot;,
+    &quot;id&quot; : &quot;01t9j000008baPhAAI&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex Economy Calf Tag&quot;,
+    &quot;nodeType&quot; : &quot;simpleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 2.7,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004GL4bAAG&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAhFdEAL&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex Economy Calf Tag&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000000cjEAA&quot;,
+      &quot;productId&quot; : &quot;01t9j000008baPhAAI&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EyPGAU&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EaDGAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EaDGAU&quot;,
+      &quot;name&quot; : &quot;EID&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexEIDMaleTag&quot;,
+    &quot;id&quot; : &quot;01t9j000008fVXtAAM&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex EID Male Tag&quot;,
+    &quot;nodeType&quot; : &quot;simpleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 10,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004I3A1AAK&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAzpFEAT&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex EID Male Tag&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000001XBEAY&quot;,
+      &quot;productId&quot; : &quot;01t9j000008fVXtAAM&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EaDGAU&quot;,
+      &quot;name&quot; : &quot;EID&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EyPGAU&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EaDGAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexFDXBirthIDEIDTag&quot;,
+    &quot;id&quot; : &quot;01t9j000008u3cwAAA&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex FDX Birth ID EID Tag&quot;,
+    &quot;nodeType&quot; : &quot;bundleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 4.05,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004PQt3AAG&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAzpFEAT&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex FDX Birth ID EID Tag&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000003YzEAI&quot;,
+      &quot;productId&quot; : &quot;01t9j000008u3cwAAA&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;productType&quot; : &quot;Bundle&quot;,
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005HmbGAE&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;name&quot; : &quot;Calf Pack&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexFDXEconomyCalfPack&quot;,
+    &quot;id&quot; : &quot;01t9j000008bakfAAA&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex FDX Economy Calf Pack&quot;,
+    &quot;nodeType&quot; : &quot;bundleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 6.2,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004GL6DAAW&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAhFdEAL&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex FDX Economy Calf Pack&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000000eLEAQ&quot;,
+      &quot;productId&quot; : &quot;01t9j000008bakfAAA&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;productType&quot; : &quot;Bundle&quot;,
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005HmbGAE&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;name&quot; : &quot;Calf Pack&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexFDXEconomyCalfPackwithBrass&quot;,
+    &quot;id&quot; : &quot;01t9j000008fVhZAAU&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex FDX Economy Calf Pack with Brass&quot;,
+    &quot;nodeType&quot; : &quot;bundleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 7.4,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004I3GTAA0&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAhFdEAL&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex FDX Economy Calf Pack with Brass&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000001c1EAA&quot;,
+      &quot;productId&quot; : &quot;01t9j000008fVhZAAU&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;productType&quot; : &quot;Bundle&quot;,
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005HmbGAE&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;name&quot; : &quot;Calf Pack&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexFDXPremiumCalfPack&quot;,
+    &quot;id&quot; : &quot;01t9j000008fRFmAAM&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex FDX Premium Calf Pack&quot;,
+    &quot;nodeType&quot; : &quot;bundleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 7.15,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004I3Q9AAK&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAhFdEAL&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex FDX Premium Calf Pack&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000001lhEAA&quot;,
+      &quot;productId&quot; : &quot;01t9j000008fRFmAAM&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;productType&quot; : &quot;Bundle&quot;,
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005HmbGAE&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EWzGAM&quot;,
+      &quot;name&quot; : &quot;Calf Pack&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexFDXPremiumCalfPackwithBrass&quot;,
+    &quot;id&quot; : &quot;01t9j000008fW49AAE&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex FDX Premium Calf Pack with Brass&quot;,
+    &quot;nodeType&quot; : &quot;bundleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 8.35,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004IXo2AAG&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAhFdEAL&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex FDX Premium Calf Pack with Brass&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000001ovEAA&quot;,
+      &quot;productId&quot; : &quot;01t9j000008fW49AAE&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;productType&quot; : &quot;Bundle&quot;,
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  }, {
+    &quot;additionalFields&quot; : { },
+    &quot;attributeCategories&quot; : [ ],
+    &quot;catalogs&quot; : [ {
+      &quot;customFields&quot; : { },
+      &quot;id&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;name&quot; : &quot;LIC Catalogue&quot;,
+      &quot;numberOfCategories&quot; : 32
+    } ],
+    &quot;categories&quot; : [ {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EaDGAU&quot;,
+      &quot;name&quot; : &quot;EID&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EyPGAU&quot;,
+      &quot;name&quot; : &quot;Allflex&quot;,
+      &quot;parentCategoryId&quot; : &quot;0ZG9j0000005EaDGAU&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    }, {
+      &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+      &quot;childCategories&quot; : [ ],
+      &quot;customFields&quot; : { },
+      &quot;hasSubCategories&quot; : false,
+      &quot;id&quot; : &quot;0ZG9j0000005EQXGA2&quot;,
+      &quot;name&quot; : &quot;Tags&quot;,
+      &quot;qualificationContext&quot; : {
+        &quot;isQualified&quot; : true
+      }
+    } ],
+    &quot;childProducts&quot; : [ ],
+    &quot;childVariationIds&quot; : [ ],
+    &quot;configureDuringSale&quot; : &quot;Allowed&quot;,
+    &quot;displayUrl&quot; : &quot;/resource/AllflexFDXReplacementEIDTag&quot;,
+    &quot;id&quot; : &quot;01t9j000008uoFGAAY&quot;,
+    &quot;isActive&quot; : true,
+    &quot;isAssetizable&quot; : true,
+    &quot;isSoldOnlyWithOtherProds&quot; : false,
+    &quot;name&quot; : &quot;Allflex FDX Replacement EID Tag&quot;,
+    &quot;nodeType&quot; : &quot;bundleProduct&quot;,
+    &quot;prices&quot; : [ {
+      &quot;isDefault&quot; : true,
+      &quot;isDerived&quot; : false,
+      &quot;isSelected&quot; : false,
+      &quot;price&quot; : 4.05,
+      &quot;priceBookEntryId&quot; : &quot;01u9j000004Pq17AAC&quot;,
+      &quot;priceBookId&quot; : &quot;01sQE0000015sTpYAI&quot;,
+      &quot;pricingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;pricingModelType&quot; : &quot;OneTime&quot;
+      }
+    } ],
+    &quot;productClassification&quot; : {
+      &quot;id&quot; : &quot;11B9j00000AAzpFEAT&quot;
+    },
+    &quot;productCode&quot; : &quot;Allflex FDX Replacement EID Tag&quot;,
+    &quot;productComponentGroups&quot; : [ ],
+    &quot;productSellingModelOptions&quot; : [ {
+      &quot;id&quot; : &quot;0iO9j00000003h3EAA&quot;,
+      &quot;productId&quot; : &quot;01t9j000008uoFGAAY&quot;,
+      &quot;productSellingModel&quot; : {
+        &quot;id&quot; : &quot;0jP9j00000000KzEAI&quot;,
+        &quot;name&quot; : &quot;One Time&quot;,
+        &quot;sellingModelType&quot; : &quot;OneTime&quot;,
+        &quot;status&quot; : &quot;Active&quot;
+      },
+      &quot;productSellingModelId&quot; : &quot;0jP9j00000000KzEAI&quot;
+    } ],
+    &quot;productType&quot; : &quot;Bundle&quot;,
+    &quot;qualificationContext&quot; : {
+      &quot;isQualified&quot; : true
+    }
+  } ]
+}</previewJsonData>
+    <processSuperBulk>false</processSuperBulk>
+    <responseCacheTtlMinutes>0.0</responseCacheTtlMinutes>
+    <rollbackOnError>false</rollbackOnError>
+    <sourceObjectDefault>false</sourceObjectDefault>
+    <synchronousProcessThreshold>0.0</synchronousProcessThreshold>
+    <type>Transform</type>
+    <uniqueName>TransformProductResponse_1</uniqueName>
+    <versionNumber>1.0</versionNumber>
+    <xmlDeclarationRemoved>false</xmlDeclarationRemoved>
+</OmniDataTransform>

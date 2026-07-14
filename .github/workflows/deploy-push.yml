@@ -7,6 +7,9 @@ on:
       - test
       - main
 
+permissions:
+      contents: read
+
 jobs:
 
   Deployment:

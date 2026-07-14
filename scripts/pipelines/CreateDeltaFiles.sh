@@ -9,7 +9,7 @@ mkdir changedSources
 # Get Delta using the Sf git delta plugin 
 echo "" # insert new line
 #echo "FROM_TAG: $FROM_TAG" # if commented, HEAD~1 is used as the from commit
-sf sgd source delta -f $FROM_TAG -t $TO_TAG -o "changedSources" -i .forceignore -a $API_VERSION --generate-delta
+sf sgd source delta -f $FROM_TAG -t $TO_TAG -o changedSources --generate-delta -i .forceignore -a $API_VERSION
 #sf sgd source delta -f HEAD~1 -t HEAD -o "changedSources" -i .forceignore -a $API_VERSION
 echo "" # insert new line
 echo "For Deployment - Contents of changedSources/package/package.xml:"

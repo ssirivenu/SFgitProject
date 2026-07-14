@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniDataTransform xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <assignmentRulesUsed>false</assignmentRulesUsed>
+    <deletedOnSuccess>false</deletedOnSuccess>
+    <errorIgnored>false</errorIgnored>
+    <expectedInputJson>{
+  &quot;enablePricing&quot; : true,
+  &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+  &quot;productId&quot; : &quot;01t9j000008fYdtAAE&quot;,
+  &quot;enableQualification&quot; : true
+}</expectedInputJson>
+    <expectedOutputJson>{
+  &quot;inputs&quot; : [ {
+    &quot;additionalContextData&quot; : [ {
+      &quot;nodeName&quot; : &quot;Contract&quot;,
+      &quot;nodeData&quot; : {
+        &quot;id&quot; : &quot;xxxxx231&quot;,
+        &quot;name&quot; : &quot;Contract1&quot;
+      }
+    }, {
+      &quot;nodeName&quot; : &quot;Lead&quot;,
+      &quot;nodeData&quot; : {
+        &quot;id&quot; : &quot;lllllll31&quot;,
+        &quot;name&quot; : &quot;Lead1&quot;
+      }
+    } ],
+    &quot;additionalFields&quot; : {
+      &quot;Product2&quot; : {
+        &quot;fields&quot; : [ &quot;CustomField1__c&quot;, &quot;StandardField1&quot; ]
+      }
+    },
+    &quot;correlationId&quot; : &quot;9cbb9650-48c5-11ed-96d1-0afcf185843b&quot;,
+    &quot;catalogId&quot; : &quot;0ZSxx0000000001GAA&quot;,
+    &quot;currencyCode&quot; : &quot;USD&quot;,
+    &quot;priceBookId&quot; : &quot;01sxx0000005puLAAQ&quot;,
+    &quot;productId&quot; : &quot;01txx0000006j08AAA&quot;,
+    &quot;productSellingModelId&quot; : &quot;0jPxx000000004rEAA&quot;,
+    &quot;userContext&quot; : {
+      &quot;accountId&quot; : &quot;001xx0000000001AAA&quot;
+    },
+    &quot;enableQualification&quot; : true,
+    &quot;enablePricing&quot; : true,
+    &quot;qualificationProcedure&quot; : &quot;QualificationProcedure&quot;,
+    &quot;pricingProcedure&quot; : &quot;Preview&quot;,
+    &quot;contextDefinition&quot; : &quot;TestDefinition&quot;,
+    &quot;contextMapping&quot; : &quot;TestDefinitionNode&quot;
+  } ]
+}</expectedOutputJson>
+    <fieldLevelSecurityEnabled>true</fieldLevelSecurityEnabled>
+    <inputType>JSON</inputType>
+    <isManagedUsingStdDesigner>true</isManagedUsingStdDesigner>
+    <name>TransformProductDetailRequest</name>
+    <nullInputsIncludedInOutput>false</nullInputsIncludedInOutput>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>0bbf4387-33a2-44fe-97f1-9e7ef61c2a38</globalKey>
+        <inputFieldName>inputs</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductDetailRequest</name>
+        <omniDataTransformation>0kd9j0000011Mdp</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011Mdp</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldFormat>List&lt;Map&gt;</outputFieldFormat>
+        <outputFieldName>inputs</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>68425bde-6320-45f1-a9b8-fb989396086e</globalKey>
+        <inputFieldName>catalogId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductDetailRequest</name>
+        <omniDataTransformation>0kd9j0000011MVl</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011MVl</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>inputs:catalogId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>aee5194b-17e3-4d3b-8aac-318f476dca6e</globalKey>
+        <inputFieldName>productId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductDetailRequest</name>
+        <omniDataTransformation>0kd9j0000011MXN</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011MXN</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>inputs:productId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>47204d59-5e23-4709-ad41-10f69972e3e2</globalKey>
+        <inputFieldName>enablePricing</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductDetailRequest</name>
+        <omniDataTransformation>0kd9j0000011MYz</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011MYz</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>inputs:enablePricing</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>dd39682c-9c3b-4ce3-8819-a0fc1d6f710e</globalKey>
+        <inputFieldName>enableQualification</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductDetailRequest</name>
+        <omniDataTransformation>0kd9j0000011Mab</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011Mab</omniDataTransformationId>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>inputs:enableQualification</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <formulaSequence>1.0</formulaSequence>
+        <globalKey>176d1acb-bc5e-4f62-95f2-a172cb1015e5</globalKey>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>TransformProductDetailRequest</name>
+        <omniDataTransformation>0kd9j0000011McD</omniDataTransformation>
+        <omniDataTransformationId>0kd9j0000011McD</omniDataTransformationId>
+        <outputCreationSequence>0.0</outputCreationSequence>
+        <outputFieldName>Formula</outputFieldName>
+        <outputObjectName>Formula</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <outputType>JSON</outputType>
+    <previewJsonData>{
+  &quot;enablePricing&quot; : true,
+  &quot;catalogId&quot; : &quot;0ZS9j0000004WanGAE&quot;,
+  &quot;productId&quot; : &quot;01t9j000008fYdtAAE&quot;,
+  &quot;enableQualification&quot; : true
+}</previewJsonData>
+    <processSuperBulk>false</processSuperBulk>
+    <responseCacheTtlMinutes>0.0</responseCacheTtlMinutes>
+    <rollbackOnError>false</rollbackOnError>
+    <sourceObjectDefault>false</sourceObjectDefault>
+    <synchronousProcessThreshold>0.0</synchronousProcessThreshold>
+    <type>Transform</type>
+    <uniqueName>TransformProductDetailRequest_1</uniqueName>
+    <versionNumber>1.0</versionNumber>
+    <xmlDeclarationRemoved>false</xmlDeclarationRemoved>
+</OmniDataTransform>

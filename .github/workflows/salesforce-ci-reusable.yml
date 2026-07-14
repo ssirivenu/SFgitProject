@@ -1,11 +1,11 @@
-name: salesforce-ci-reusable
+name: salesforce-ci
 # This workflow allows manual deployment of changes to a Salesforce org.
-# It is triggered manually and allows the user to specify the environment, test class names, and whether to validate or deploy changes.
+# It is triggered manually or can eb called by a different workflow and allows the user to specify the environment, and whether to validate or deploy changes.
 # The workflow uses the sfdx-git-delta plugin to generate a delta of changes and then
 # deploys or validates those changes against the specified Salesforce org.
 
 on:
-  workflow_dispatch:  # Allows manual triggering of the workflow
+  workflow_dispatch: 
     inputs:
         environment:
           description: 'Environment to run tests against'
@@ -31,6 +31,8 @@ on:
 jobs:
   ManualDeployment:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     environment:
       name: ${{ inputs.environment }}
     env:
@@ -41,62 +43,37 @@ jobs:
         SANDBOX_NAME: ${{ vars.SANDBOX_NAME }}
         RUNAGAINSTORG: ${{ vars.RUNAGAINSTORG }}
         UNITTESTS_SCOPE: ${{ vars.UNITTESTS_SCOPE }}
-        SPECIFIEDTESTS: ${{ vars.SPECIFIEDTESTS}}
+        SPECIFIEDTESTS: ${{ vars.testclassnames }}
         SF_CLI_URL: ${{ vars.SF_CLI_URL }}
+        ENCRYPTED_KEY: ${{ secrets.ENCRYPTED_KEY }}
+        CONSUMER_KEY: ${{ vars.CONSUMER_KEY }}
+        USER_NAME: ${{ vars.USER_NAME }}
+        AESKEY: ${{ secrets.AESKEY }}
+        IVKEY: ${{ secrets.IVKEY }}
+        INSTANCE_URL: ${{ vars.INSTANCE_URL }}
+        
     steps:
       # checkout Source
       - name: 'Checkout source code'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2 # V6.0.2
         with:
           fetch-depth: 0
 
-      # Install Salesforce CLI & sfdx-git-delta plugin
+
+      # Install Salesforce CLI via pnpm
       - name: Install Salesforce CLI
-        run: |
-          set -e
-          echo "📥 Downloading Salesforce CLI from $SF_CLI_URL..."
-          mkdir -p ~/cli/sf
-          curl -sL "$SF_CLI_URL" | tar xzC ~/cli/sf --strip-components 1
-          echo "$HOME/cli/sf/bin" >> $GITHUB_PATH
-          echo "✅ Salesforce CLI installed successfully"
+        run: npm install @salesforce/cli --global
+
+      # conform SF version
       - name: Verify Salesforce CLI
-        run: sf --version
-      - name: Install sfdx-git-delta
         run: |
-          echo y | sf plugins:install sfdx-git-delta
-          sf plugins
-
-      #Create delta files
-      - name: Create Delta files
-        run: |
-          bash scripts/pipelines/CreateDeltaFiles.sh 
-
-      # Set up the PMD tool
-      - name: 'Setup PMD'
-        uses: legetz/setup-pmd@7.0.0-rc4
-
-      # Run the PMD code scan if there has been apex class changes & upload results file on failure       
-      - name: 'Apex changes scan'
-        id: Codescan
-        if: ${{( hashFiles('changedSources/force-app/main/default/classes/*.cls') !='') }}
-        run: bash scripts/pipelines/RunPMDScan.sh
-      - name: Upload PMD Report
-        if: failure() && steps.Codescan.outcome == 'failure'
-        uses: actions/upload-artifact@v4
-        with:
-          name: pmd-scan-results
-          path: pmdResults/PmdResults.txt
+          sf --version
+     
 
       #Authorizes the salesforce environment and deploys or validates changes in the Salesforce org
       - name: Authorize Org
-        env:
-          AESKEY: ${{ secrets.AESKEY }}
-          IVKEY: ${{ secrets.IVKEY }}
-          ENCRIPTED_KEY: ${{ secrets.ENCRIPTED_KEY }}
-          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
-          USER_NAME: ${{ secrets.USER_NAME }}
-          INSTANCE_URL: ${{vars.INSTANCE_URL}}
-        run: bash scripts/pipelines/AuthorizeOrg.sh
+        run: |
+          bash scripts/pipelines/AuthorizeOrg.sh
       - name: 🚀 Start Action
         run: |
           bash scripts/pipelines/DeployOrValidateToOrg.sh ${{ inputs.action_type}}
